@@ -1,14 +1,15 @@
+import { Route, Routes } from 'react-router'
 import './App.css'
-import Header from './components/Header'
-import NavigationBar from './components/NavigationBar'
+import HomePage from './pages/HomePage'
 
 function App() {
 
   return (
     <main>
-      <Header />
-
-      <NavigationBar />
+      <h1>ShareIn</h1>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+      </Routes>
     </main>
   )
 }

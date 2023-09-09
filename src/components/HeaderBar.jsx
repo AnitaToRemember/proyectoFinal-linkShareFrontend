@@ -1,7 +1,7 @@
 import ShareInLogo from '../assets/ShareInLogo.png'
 import useScroll  from '../hooks/useScroll'
 import '../components/Header.css'
-const Header = () => {
+const HeaderBar = () => {
 
     const scroll = useScroll()
     const atTop = scroll === 0
@@ -15,4 +15,4 @@ const Header = () => {
 }
 
 
-export default Header
+export default HeaderBar

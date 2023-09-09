@@ -1,0 +1,39 @@
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  transition: all 0.5s;
+  background-color: var(--lightBlue);
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header + * {
+  margin-top: 40px;
+}
+
+#header.not-top {
+display: flex;
+}
+
+.header-logo {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 90px;
+  width: 60px;
+  }
+
+  .title{
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--logoText);
+  }

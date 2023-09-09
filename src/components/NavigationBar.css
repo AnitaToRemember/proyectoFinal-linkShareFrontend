@@ -1,0 +1,35 @@
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 1.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--logoText);
+  background-color: var(--lightBlue);
+  }
+
+  
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}

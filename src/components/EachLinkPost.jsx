@@ -1,4 +1,4 @@
-import {useLinks} from "./hooks/api"
+import {useLinks} from "../hooks/api"
 
 function EachLinkPost ({id}) {
     const linksPosted = useLinks(id)

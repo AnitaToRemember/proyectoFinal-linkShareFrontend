@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {useLinks} from "./hooks/api"
+import {useLinks} from "../hooks/api"
 import EachLinkPost from "./EachLinkPost"
 
 function ListAllLinks() {

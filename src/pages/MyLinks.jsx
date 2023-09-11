@@ -1,9 +1,12 @@
+import ListAllLinks from "../components/ListAllLinks"
+
 const MyLinks = () => {
 
     return (
-        <>
-        <h1>My links page</h1>
-        </>
+        <div>
+            <ListAllLinks />
+        </div>
+
     )
 }
 

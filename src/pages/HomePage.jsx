@@ -1,4 +1,5 @@
 import HeaderBar from '../components/HeaderBar'
+import ListAllLinks from '../components/ListAllLinks'
 import NavigationBar from '../components/NavigationBar'
 
 function HomePage() {
@@ -6,6 +7,7 @@ function HomePage() {
 return (
     <main>
         <HeaderBar />
+            <ListAllLinks />
         <NavigationBar />
 
     </main>

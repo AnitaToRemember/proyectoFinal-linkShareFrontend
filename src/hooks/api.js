@@ -1,4 +1,4 @@
-import useFetch from "./useFetch";
+import useFetch from "./useFetch"
 
 export const useLinks = () => {
     const { data, error } = useFetch('http://localhost:8000/links')

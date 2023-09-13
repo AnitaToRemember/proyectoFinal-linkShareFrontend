@@ -1,12 +1,16 @@
-import useFetch from "./useFetch"
+import useFetch from "./useFetch";
 
-// Inside useLinks.js
 export const useLinks = () => {
     const { data, error } = useFetch('http://localhost:8000/links')
     
+    console.log('data:', data); // Log the data here
+
     if (error) {
         throw new Error(`Error fetching links: ${error.message}`)
     }
     
-    return data || []
+    // Access the 'links' array from the 'data' object or provide an empty array as a default value
+    const linksArray = data && data.data && data.data.links ? data.data.links : []
+
+    return linksArray
 }

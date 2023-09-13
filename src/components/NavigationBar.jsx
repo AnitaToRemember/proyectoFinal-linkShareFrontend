@@ -1,17 +1,17 @@
 import '../components/NavigationBar.css'
+import { Link } from 'react-router-dom' // Import Link from react-router-dom
 
 const NavigationBar = () => {
-		return (
-			<nav className="navbar">
-      <ul className="nav-list">
-        <li className="nav-item">Home</li>
-        <li className="nav-item">My Links</li>
-        <li className="nav-item">Filter</li>
-        <li className="nav-item">Account</li>
-      </ul>
-    </nav>
-		)
-	}
-
+    return (
+        <nav className="navbar">
+            <ul className="nav-list">
+                <li className="nav-item"><Link to="/">Home</Link></li>
+                <li className="nav-item"><Link to="/mylinks">MyLinks</Link></li>
+                <li className="nav-item"><Link to="/filter">Filter</Link></li>
+                <li className="nav-item"><Link to="/account">account</Link></li>
+            </ul>
+        </nav>
+    )
+}
 
 export default NavigationBar

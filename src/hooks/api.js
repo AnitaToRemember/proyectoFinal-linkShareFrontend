@@ -10,7 +10,6 @@ export const useLinks = () => {
     }
     
     // Access the 'links' array from the 'data' object or provide an empty array as a default value
-    const linksArray = data && data.data && data.data.links ? data.data.links : []
-
-    return linksArray
+    const linksArray = (data?.data?.links) || [];
+    return {linksArray}
 }

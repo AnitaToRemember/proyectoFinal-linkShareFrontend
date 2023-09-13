@@ -4,28 +4,30 @@ import EachLinkPost from "./EachLinkPost";
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")
-    const { data, isLoading, error } = useLinks()
+    const { linksArray, isLoading, error } = useLinks()
+    console.log('p', linksArray);
 
     useEffect(() => {
-        console.log('data in ListAllLinks:', data) // Log the data here
+        console.log('data in ListAllLinks:', linksArray) // Log the data here
         
         if (error) {
             // Handle the error here (e.g., show an error message).
             console.error("Error fetching links:", error)
         }
-    }, [data, error]);
+    }, [linksArray, error]);
+    console.log('manu', linksArray);
 
     if (isLoading) {
         return <h2>Loading...</h2>
     }
 
-    if (!data || !Array.isArray(data)) {
+    if (!linksArray || !Array.isArray(linksArray)) {
         return <h2>No links available.</h2>
     }
 
     return (
         <div className="list-all-links">
-            {data.map((link) => (
+            {linksArray.map((link) => (
                 <div
                     key={link.id}
                     onClick={() => setSelected(link.id)}

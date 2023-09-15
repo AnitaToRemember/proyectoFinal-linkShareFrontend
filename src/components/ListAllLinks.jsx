@@ -32,12 +32,14 @@ function ListAllLinks() {
                     key={link.id}
                     onClick={() => setSelected(link.id)}
                 >
-                    {link.title}
-                    {link.url}
-                    {link.description}
-                    {link.username}
-                    {link.votes}
-                    {link.createdAt}
+                    <div>
+                        <h2>{link.title}</h2>
+                        <span>{link.url}</span>
+                        <p>{link.description}</p>
+                        <span>{link.username}</span> ||
+                        <span>{link.votes}</span> || 
+                        <span>{link.createdAt}</span>
+                    </div>
                 </div>
             ))}
             {selected && <EachLinkPost id={selected} />}

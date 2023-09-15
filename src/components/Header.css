@@ -22,6 +22,7 @@
 
 #header.not-top {
 display: flex;
+opacity: 50%;
 }
 
 .header-logo {

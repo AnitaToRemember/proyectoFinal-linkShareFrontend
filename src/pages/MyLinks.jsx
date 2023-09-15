@@ -3,7 +3,7 @@ import ListAllLinks from "../components/ListAllLinks"
 const MyLinks = () => {
 
     return (
-        <div>
+        <div className="all-links">
             <ListAllLinks />
         </div>
 

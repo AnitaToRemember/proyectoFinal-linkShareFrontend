@@ -1,19 +1,17 @@
 *{
   font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
 }
 
 #header {
+  display: flex;
+  align-items: center;
   position: fixed;
+  width: 100vw;
   top: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  transition: all 0.5s;
+  transition: all 0.2s;
   background-color: var(--lightBlue);
   height: 4rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 #header + * {
@@ -26,15 +24,14 @@ opacity: 50%;
 }
 
 .header-logo {
-  top: 0;
-  left: 0;
-  position: fixed;
   height: 90px;
   width: 60px;
+  margin: 0 0 0 1rem;
   }
 
   .title{
   font-weight: 800;
   font-size: 2rem;
   color: var(--logoText);
+  margin: 0.5rem 1rem 0 0;
   }

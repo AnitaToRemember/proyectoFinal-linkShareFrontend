@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Auth = () => {
     return (
-        <ul>
+        <ul className="auth-buttons">
             <li> 
                 <Link to={"/Register"}>Register</Link>
             </li>

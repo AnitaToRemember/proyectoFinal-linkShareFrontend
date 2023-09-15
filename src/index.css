@@ -1,5 +1,5 @@
 :root {
-  --white: #F6F4EB;
+  --white: #ffffff;
   --lightBlue: #91C8E4;
   --mediumBlue: #749BC2;
   --darkBlue: #4682A9;
@@ -16,6 +16,10 @@
   background-color: var(--white);
 }
 
+#root{
+  padding: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -27,7 +31,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;

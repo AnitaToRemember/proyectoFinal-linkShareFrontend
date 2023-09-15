@@ -1,21 +1,14 @@
 import Auth from '../components/Auth'
-import HeaderBar from '../components/HeaderBar'
 import ListAllLinks from '../components/ListAllLinks'
-import NavigationBar from '../components/NavigationBar'
-
+import '../components/Auth.css'
 
 
 function HomePage() {
 
 return (
     <main>
-        <HeaderBar>
-            <Auth /> 
-       </HeaderBar>
-        <ListAllLinks />
-        <NavigationBar />
         <Auth />
-
+        <ListAllLinks />
     </main>
     )
 }

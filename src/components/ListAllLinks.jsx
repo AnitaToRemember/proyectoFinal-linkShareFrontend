@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLinks } from "../hooks/api";
 import EachLinkPost from "./EachLinkPost";
+import '../components/AllLinks.css'
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")

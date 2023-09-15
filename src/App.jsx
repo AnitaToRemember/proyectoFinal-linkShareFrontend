@@ -24,7 +24,7 @@ function App() {
           <Route path="/account" element={<AccountPage/>}/>
           <Route path="*" element={<NotFoundPage /> }/>
         </Routes>
-      <NavigationBar/>
+      <NavigationBar />
     </main>
   )
 }

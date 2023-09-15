@@ -1,21 +1,23 @@
 *{
   font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
 }
 
 .navbar{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 100vw;
   height: 1.5rem;
-  left: 0;
-  right: 0;
   bottom: 0;
+  margin-top: auto;
   position: fixed;
   font-size: 10px;
   font-weight: 800;
   color: var(--logoText);
   background-color: var(--lightBlue);
+  z-index: 999;
   }
 
   

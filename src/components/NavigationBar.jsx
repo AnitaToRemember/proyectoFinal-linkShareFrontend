@@ -8,7 +8,7 @@ const NavigationBar = () => {
                 <li className="nav-item"><Link to="/">Home</Link></li>
                 <li className="nav-item"><Link to="/mylinks">MyLinks</Link></li>
                 <li className="nav-item"><Link to="/filter">Filter</Link></li>
-                <li className="nav-item"><Link to="/account">account</Link></li>
+                <li className="nav-item"><Link to="/account">Account</Link></li>
             </ul>
         </nav>
     )

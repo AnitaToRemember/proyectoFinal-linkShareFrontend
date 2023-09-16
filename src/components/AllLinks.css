@@ -1,0 +1,52 @@
+.list-all-links {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 20px;
+	}
+	
+	.link-post {
+		border: 1px solid #ccc;
+		border-radius: 8px;
+		padding: 12px;
+		background-color: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+	
+	.link-post:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	
+	.link-post h2 {
+		font-size: 16px;
+		margin-bottom: 8px;
+	}
+	
+	.link-post span {
+		font-size: 14px;
+		color: #666;
+		margin-right: 8px;
+	}
+	
+	.link-post p {
+		font-size: 14px;
+		margin-bottom: 8px;
+	}
+	
+	.link-post .username {
+		color: #1DA1F2;
+		font-weight: bold;
+	}
+	
+	.link-post .votes {
+		color: #666;
+	}
+	
+	.link-post .createdAt {
+		color: #666;
+		font-style: italic;
+	}
+	

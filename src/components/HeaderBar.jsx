@@ -1,10 +1,13 @@
 import ShareInLogo from '../assets/ShareInLogo.png'
 import '../components/Header.css'
+import {Link} from 'react-router-dom'
+
 const HeaderBar = () => {
 
     return (
         <header id="header" >
-                <img className='header-logo' src={ShareInLogo} />
+                
+                <Link to="/"><img className='header-logo' src={ShareInLogo}/></Link>
                 <h1 className='title'>ShareIn</h1>
 
         </header>

@@ -9,8 +9,6 @@ function ListAllLinks() {
     console.log('p', linksArray);
 
     useEffect(() => {
-        console.log('data in ListAllLinks:', linksArray) // Log the data here
-        
         if (error) {
             // Handle the error here (e.g., show an error message).
             console.error("Error fetching links:", error)
@@ -33,9 +31,9 @@ function ListAllLinks() {
                     key={link.id}
                     onClick={() => setSelected(link.id)}
                 >
-                    <div>
+                    <div className="link-post">
                         <h2>{link.title}</h2>
-                        <span>{link.url}</span>
+                        <url>{link.url}</url>
                         <p>{link.description}</p>
                         <span>{link.username}</span> ||
                         <span>{link.votes}</span> || 

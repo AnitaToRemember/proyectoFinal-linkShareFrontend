@@ -1,5 +1,5 @@
 import { useState } from "react";
-import registerUserService from "../services";
+import { registerUserService } from '../services/index';
 
 const RegisterPage = () => {
   const [userName, setUserName] = useState("");

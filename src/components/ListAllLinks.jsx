@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLinks } from "../hooks/api";
 import EachLinkPost from "./EachLinkPost";
 import '../components/AllLinks.css'
+import StarRating from "./StarRating";
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")
@@ -32,12 +33,12 @@ function ListAllLinks() {
                     onClick={() => setSelected(link.id)}
                 >
                     <div className="link-post">
-                        <h2>{link.title}</h2>
-                        <url>{link.url}</url>
-                        <p>{link.description}</p>
-                        <span>{link.username}</span> ||
-                        <span>{link.votes}</span> || 
-                        <span>{link.createdAt}</span>
+                        <h2 className="title">{link.title}</h2>
+                        <a className="url">{link.url}</a>
+                        <p className="description">{link.description}</p>
+                        <span className="username">{link.username}</span>
+                        <span className="votes"><StarRating value= {link.votes}></StarRating></span> 
+                        <span className="date">{link.createdAt}</span>
                     </div>
                 </div>
             ))}

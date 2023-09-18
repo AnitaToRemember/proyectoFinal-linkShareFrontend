@@ -7,7 +7,6 @@ import StarRating from "./StarRating";
 function ListAllLinks() {
     const [selected, setSelected] = useState("")
     const { linksArray, isLoading, error } = useLinks()
-    console.log('p', linksArray);
 
     useEffect(() => {
         if (error) {
@@ -15,7 +14,6 @@ function ListAllLinks() {
             console.error("Error fetching links:", error)
         }
     }, [linksArray, error]);
-    console.log('manu', linksArray);
 
     if (isLoading) {
         return <h2>Loading...</h2>

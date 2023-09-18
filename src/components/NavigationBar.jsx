@@ -13,7 +13,7 @@ const NavigationBar = () => {
                 <li className="nav-item"><Link to="/account"><FontAwesomeIcon icon={faUser} size="2xl"  style={{color: "#0093ff",}} /></Link></li>
             </ul>
         </nav>
-    )
+    );
 }
 
-export default NavigationBar
+export default NavigationBar;

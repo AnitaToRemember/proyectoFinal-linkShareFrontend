@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { loginUserService } from '../services/index';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [userName, setUserName] = useState("");
 
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      await loginUserService({ email, password, userName });
-      // Lógica de inicio de sesión con éxito por ejemplo, redirigir al homepage
+      const data = await loginUserService({ email, password });
+      console.log(data);
+      navigate("/MyLinks");
     } catch (error) {
       setError(error.message);
     }
@@ -44,17 +46,6 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="userName">Username </label>
-          <input
-            type="userName"
-            id="userName"
-            name="userName"
-            required
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </fieldset>
-
         <button>Login</button>
         {error ? <p>{error}</p> : null}
       </form>

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { loginUserService } from '../services/index';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,7 +15,7 @@ const LoginPage = () => {
 
     try {
       await loginUserService({ email, password, userName });
-      // Lógica de inicio de sesión con éxito por ejemplo, redirigir al homepage
+      navigate("/MyLinks");
     } catch (error) {
       setError(error.message);
     }

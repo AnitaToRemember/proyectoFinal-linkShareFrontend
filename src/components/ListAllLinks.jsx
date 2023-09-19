@@ -6,29 +6,33 @@ import useListLinks from "../hooks/useListLinks";
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")
-    const { linksArray, isLoading, error } = useListLinks()
+    const { posts, Loading, error } = useListLinks()
 
     useEffect(() => {
         if (error) {
+            
             // Handle the error here (e.g., show an error message).
             console.error("Error fetching links:", error)
+            
         }
-    }, [linksArray, error]);
+    }, [ error ]);
 
-    if (isLoading) {
+    if (Loading) {
         return <h2>Loading...</h2>
     }
-
-    if (!linksArray || !Array.isArray(linksArray)) {
-        return <h2>No links available.</h2>
+    
+    if (!Array.isArray(posts.links) || posts.links.length === 0) {
+        return <h2>No links available.</h2>;
     }
 
     return (
         <div className="list-all-links">
-            {linksArray.map((link) => (
+            {posts.links.map((link) => (
+                
                 <div
                     key={link.id}
                     onClick={() => setSelected(link.id)}
+                    
                 >
                     <div className="link-post">
                         <h2 className="title">{link.title}</h2>

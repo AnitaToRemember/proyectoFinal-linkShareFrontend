@@ -13,12 +13,14 @@ function useListLinks() {
                 setLoading(true)
 
                 const data = await getAllLinksService()
+                console.log("eve", data);
 
                 setPosts(data)
 
             }
             catch(error){
                 setError(error.message)
+                console.error("Error in useListLinks:", error);
             }
             
             finally{

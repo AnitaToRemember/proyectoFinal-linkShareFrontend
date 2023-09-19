@@ -46,22 +46,23 @@ export const loginUserService = async ({ email, password }) => {
     return json.data;
   };
   
-  export const getAllLinksService = async ({id, title, url, description, username, votes, createdAt}) => {
+  export const getAllLinksService = async () => {
     const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/links`, {
       method: 'GET',
       headers: {
-          'Content-type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id, title, url, description, username, votes, createdAt})
-  });
-
+    });
+  
     const json = await response.json();
-
-if (!response.ok) {
-    throw new Error(json.message);
-}
-  return json.data;
-};
+  
+    if (!response.ok) {
+      throw new Error(json.message);
+    }
+  
+    return json.data;
+  };
+  
 
   export const getSingleLinkService = async ({linkId, title, url, description, username, votes, createdAt}) => {
     const response = await fetch (`${import.meta.env.VITE_APP_BACKEND}/links/${linkId}`,{

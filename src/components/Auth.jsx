@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-const Auth = () => {
-    return (
-        <ul className="auth-buttons">
-            <li> 
-                <Link to={"/Register"}>Register</Link>
-            </li>
-            <li>
-                <Link to={"/Login"}>Login</Link>
-            </li>
-        </ul>
-    )
-}
+export const Auth = () => {
+  const { user, logout } = useContext(AuthContext);
 
-
-export default Auth
+  return user ? (
+    <section>
+      Logged in as <Link to={`/user/${user.id}`}>{user.email}</Link>{" "}
+      <button onClick={() => logout()}>Logout</button>
+    </section>
+  ) : (
+    <ul>
+      <li>
+        <Link to={"/register"}>Register</Link>
+      </li>
+      <li>
+        <Link to={"/login"}>Login</Link>
+      </li>
+    </ul>
+  );
+};

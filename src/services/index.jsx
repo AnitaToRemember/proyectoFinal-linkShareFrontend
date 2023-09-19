@@ -49,13 +49,13 @@ if (!response.ok) {
   return json.data;
 };
 
-  export const getSingleLinkService = async ({id, title, url, description, username, votes, createdAt}) => {
-    const response = await fetch (`${import.meta.env.VITE_APP_BACKEND}/links/${id}`,{
+  export const getSingleLinkService = async ({linkId, title, url, description, username, votes, createdAt}) => {
+    const response = await fetch (`${import.meta.env.VITE_APP_BACKEND}/links/${linkId}`,{
       method: 'GET',
       headers: {
           'Content-type': 'application/json'
       },
-      body: JSON.stringify({id, title, url, description, username, votes, createdAt})
+      body: JSON.stringify({linkId, title, url, description, username, votes, createdAt})
   });
 
     const json = await response.json();

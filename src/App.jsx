@@ -8,6 +8,7 @@ import NotFoundPage from './pages/notFoundPage'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import AccountPage from './pages/AccountPage'
+import LinkPage from './pages/LinkPage'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
           <Route path="/login" element={<LoginPage />}/>
           <Route path="/mylinks" element={<MyLinks />} />
           <Route path="/filter"element={<p>filter</p>} />
-          <Route path="/links:id" element={<p>one link page</p> }/>
+          <Route path="/links/:id" element={<LinkPage />}/>
           <Route path="/account" element={<AccountPage/>}/>
           <Route path="*" element={<NotFoundPage /> }/>
         </Routes>

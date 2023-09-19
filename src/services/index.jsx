@@ -32,4 +32,36 @@ export const loginUserService = async ({ email, password }) => {
     return json.data;
   };
   
-  
+  export const getAllLinksService = async ({id, title, url, description, username, votes, createdAt}) => {
+    const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/links`, {
+      method: 'GET',
+      headers: {
+          'Content-type': 'application/json'
+      },
+      body: JSON.stringify({id, title, url, description, username, votes, createdAt})
+  });
+
+    const json = await response.json();
+
+if (!response.ok) {
+    throw new Error(json.message);
+}
+  return json.data;
+};
+
+  export const getSingleLinkService = async ({id, title, url, description, username, votes, createdAt}) => {
+    const response = await fetch (`${import.meta.env.VITE_APP_BACKEND}/links/${id}`,{
+      method: 'GET',
+      headers: {
+          'Content-type': 'application/json'
+      },
+      body: JSON.stringify({id, title, url, description, username, votes, createdAt})
+  });
+
+    const json = await response.json();
+
+if (!response.ok) {
+    throw new Error(json.message);
+}
+return json.data;
+};

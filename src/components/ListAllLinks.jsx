@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useLinks } from "../hooks/api";
 import EachLinkPost from "./EachLinkPost";
 import '../components/AllLinks.css'
 import StarRating from "./StarRating";
+import useListLinks from "../hooks/useListLinks";
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")
-    const { linksArray, isLoading, error } = useLinks()
+    const { linksArray, isLoading, error } = useListLinks()
 
     useEffect(() => {
         if (error) {
@@ -37,6 +37,7 @@ function ListAllLinks() {
                         <span className="username">{link.username}</span>
                         <span className="votes"><StarRating value= {link.votes}></StarRating></span> 
                         <span className="date">{link.createdAt}</span>
+                        <p className="date">{link.id}</p>
                     </div>
                 </div>
             ))}

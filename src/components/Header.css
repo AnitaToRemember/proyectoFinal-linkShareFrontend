@@ -12,7 +12,7 @@
   transition: all 0.2s;
   background-color: var(--lightBlue);
   height: 6rem;
-  z-index: 0;
+  z-index: -1;
 }
 
 #header + * {

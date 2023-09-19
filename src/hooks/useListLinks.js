@@ -13,7 +13,6 @@ function useListLinks() {
                 setLoading(true)
 
                 const data = await getAllLinksService()
-                console.log("eve", data);
 
                 setPosts(data)
 

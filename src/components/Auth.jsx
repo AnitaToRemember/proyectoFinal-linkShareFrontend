@@ -6,19 +6,21 @@ export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
 
   return user ? (
-
     <section className="logged-user">
-
       Logged in as <Link to={`/user/${user.id}`}>{user.username}</Link>{" "}
       <button onClick={() => logout()}>Logout</button>
     </section>
   ) : (
-    <ul className="access-buttons" >
+    <ul className="access-buttons">
       <li>
-        <Link className="register-button" to={"/register"}>Register</Link>
+        <Link className="register-button" to={"/register"}>
+          Register
+        </Link>
       </li>
       <li>
-        <Link className="login-button" to={"/login"}>Login</Link>
+        <Link className="login-button" to={"/login"}>
+          Login
+        </Link>
       </li>
     </ul>
   );

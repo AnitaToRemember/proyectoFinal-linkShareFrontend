@@ -83,9 +83,9 @@ const RegisterPage = () => {
 
       <div>
         <h3>
-          Already have an account? <a href="/login">Log in</a>
+          Already have an account? <a href="/">Log in</a>
         </h3>
-        <a href="./">Continue as a guest</a>
+        <a href="./home">Continue as a guest</a>
         
       </div>
     </section>

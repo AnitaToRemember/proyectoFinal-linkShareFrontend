@@ -17,7 +17,7 @@ export const Auth = () => {
           <Link className="register-button" to={"/register"}>Register</Link>
         </li>
         <li>
-          <Link className="login-button" to={"/login"}>Login</Link>
+          <Link className="login-button" to={"/"}>Login</Link>
         </li>
       </ul>
     </nav>

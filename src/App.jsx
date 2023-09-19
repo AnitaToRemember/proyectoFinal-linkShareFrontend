@@ -11,7 +11,7 @@ import AccountPage from './pages/AccountPage'
 import LinkPage from './pages/LinkPage'
 
 function App() {
-
+  
   return (
     <main>
       <HeaderBar />

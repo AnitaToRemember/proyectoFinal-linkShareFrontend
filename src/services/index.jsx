@@ -81,3 +81,34 @@ if (!response.ok) {
 return json.data;
 };
 
+export const sendLinkService = async ({ data, token }) => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/links`, {
+    method: "POST",
+    body: data,
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const getUserLinksService = async (linkId) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/user/${linkId}/links`
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};

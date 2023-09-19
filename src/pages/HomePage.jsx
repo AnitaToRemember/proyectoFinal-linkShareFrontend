@@ -1,7 +1,5 @@
 import {Auth} from '../components/Auth'
 import ListAllLinks from '../components/ListAllLinks'
-import '../components/Auth.css'
-import'../components/AllLinks.css'
 import NewLink from '../components/NewLink'
 import useListLinks from '../hooks/useListLinks'
 import { AuthContext } from '../context/AuthContext'
@@ -11,11 +9,11 @@ import ErrorMessage from '../components/ErrorMessage'
 
 
 function HomePage() {
-    const { links, error, loading, addLink, removeLink } = useListLinks();
-    const { user } = useContext(AuthContext);
+    const { links, error, loading, addLink, removeLink } = useListLinks()
+    const { user } = useContext(AuthContext)
 
-    if (loading) return <Loading />;
-    if (error) return <ErrorMessage message={error} />;
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage message={error} />
 return (
     <main>
         <header>

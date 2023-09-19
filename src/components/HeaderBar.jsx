@@ -1,5 +1,5 @@
 import ShareInLogo from '../assets/ShareInLogo.png'
-import '../components/Header.css'
+import '../components/HeaderBar.css'
 import {Link} from 'react-router-dom'
 
 const HeaderBar = () => {

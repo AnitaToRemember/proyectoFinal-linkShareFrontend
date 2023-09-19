@@ -9,9 +9,13 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import AccountPage from './pages/AccountPage'
 import LinkPage from './pages/LinkPage'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext'
 
 function App() {
-  
+
+  const { user } = useContext(AuthContext)
+
   return (
     <main>
       <HeaderBar />
@@ -25,7 +29,7 @@ function App() {
           <Route path="/account" element={<AccountPage/>}/>
           <Route path="*" element={<NotFoundPage /> }/>
         </Routes>
-      <NavigationBar />
+      { user ? <NavigationBar /> : null}
     </main>
   )
 }

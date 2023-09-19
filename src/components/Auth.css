@@ -1,34 +1,10 @@
 .access-buttons{
     display: flex;
-    justify-content: flex-end;
-    gap: 4rem;
+    justify-content: space-around;
     list-style: none;
     padding:0 2rem;
-    margin: 0;
-}
-
-.login-button {
-    color: #fff;
-    background-color: #1DA1F2;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    list-style: none;
-}
-
-.register-button {
-    color: #fff;
-    background-color: #1DA1F2;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    list-style: none;
+    position: relative;
+    margin-top: 8rem;
 }
 
 .logged-user {

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import EachLinkPost from "./EachLinkPost";
+import { useState, useEffect } from "react"
+import EachLinkPost from "./EachLinkPost"
 import '../components/Auth.css'
-import '../components/AllLinks.css'
-import StarRating from "./StarRating";
-import useListLinks from "../hooks/useListLinks";
-import { Link } from "react-router-dom";
+import '../components/ListAllLinks.css'
+import StarRating from "./StarRating"
+import useListLinks from "../hooks/useListLinks"
+import { Link } from "react-router-dom"
 
 function ListAllLinks() {
     const [selected, setSelected] = useState("")

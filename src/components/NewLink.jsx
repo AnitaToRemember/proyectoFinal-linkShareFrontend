@@ -1,32 +1,32 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { sendLinkService } from "../services";
+import { useContext, useState } from "react"
+import { AuthContext } from "../context/AuthContext"
+import { sendLinkService } from "../services"
+import "../components/NewLink.css"
 
 function NewLink ({ addLink }) {
-    const { token } = useContext(AuthContext);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const { token } = useContext(AuthContext)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
 
     const handleForm = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
     try {
-        setLoading(true);
-        const data = new FormData(e.target);
-        const link = await sendLinkService({ data, token });
+        setLoading(true)
+        const data = new FormData(e.target)
+        const link = await sendLinkService({ data, token })
 
-        addLink(link);
+        addLink(link)
 
-        e.target.reset();
+        e.target.reset()
     } catch (error) {
-        setError(error.message);
+        setError(error.message)
     } finally {
-        setLoading(false);
+        setLoading(false)
     }
     };
     return (
     <>
-        <h1 className="titulo-link">Add new link</h1>
         <form className="new-link" onSubmit={handleForm}>
         <fieldset>
             <label htmlFor="title">Title</label>
@@ -41,12 +41,13 @@ function NewLink ({ addLink }) {
             <textarea name="description" id="description" rows="4" cols="50" required />
         </fieldset>
     
-        <button>Share link</button>
+        <button className="posting-button">Share link</button>
         {error ? <p>{error}</p> : null}
+        {console.log(`this is the error I can't fix ---"${error}"--- NewLink.jsx`)}
         {loading ? <p>posting link...</p> : null}
         </form>
     </>
-    );
+    )
 }
     
 export default NewLink

@@ -11,13 +11,16 @@ export const Auth = () => {
       <button onClick={() => logout()}>Logout</button>
     </section>
   ) : (
-    <ul className="access-buttons" >
-      <li>
-        <Link className="register-button" to={"/register"}>Register</Link>
-      </li>
-      <li>
-        <Link className="login-button" to={"/login"}>Login</Link>
-      </li>
-    </ul>
+    <nav className="auth-buttons">
+      <ul className="access-buttons" >
+        <li>
+          <Link className="register-button" to={"/register"}>Register</Link>
+        </li>
+        <li>
+          <Link className="login-button" to={"/login"}>Login</Link>
+        </li>
+      </ul>
+    </nav>
+    
   );
 };

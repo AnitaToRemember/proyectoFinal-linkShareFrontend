@@ -8,8 +8,12 @@ function HomePage() {
 
 return (
     <main>
-        <Auth />
+        <header>
+            <Auth />
+        </header>
+        <div>
         <ListAllLinks />
+        </div>
     </main>
     )
 }

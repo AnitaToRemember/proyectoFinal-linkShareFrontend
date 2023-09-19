@@ -17,7 +17,7 @@ const LoginPage = () => {
     try {
       const token = await loginUserService({ email, password });
       login(token);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       setError(error.message);
     }

@@ -4,6 +4,7 @@ const MyLinks = () => {
 
     return (
         <div className="all-links">
+            <h1>My links</h1>
             <ListAllLinks />
         </div>
 

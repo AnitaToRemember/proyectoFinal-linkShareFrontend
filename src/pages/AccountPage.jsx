@@ -3,9 +3,7 @@ const AccountPage = () => {
 
     return (
         <section>
-            <h3>Acount Page</h3>
-           
-
+            <h1>Account Page</h1>
         </section>
     )
 }

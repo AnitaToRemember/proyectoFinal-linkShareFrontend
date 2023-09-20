@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getSingleLinkService } from "../services";
 
 function useOneLink(id) {
-    const [post, setPost] = useState("")
+    const [link, setLink] = useState("")
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
 
@@ -14,7 +14,7 @@ function useOneLink(id) {
 
                 const data = await getSingleLinkService(id)
 
-                setPost(data)
+                setLink(data)
 
             }
             catch(error){
@@ -29,7 +29,7 @@ function useOneLink(id) {
         loadPost()
     }, [id])
     
-    return {post, loading, error}
+    return {link, loading, error}
 }
 
 export default useOneLink

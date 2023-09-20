@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
+import "./Auth.css"
 
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext)
@@ -11,16 +12,16 @@ export const Auth = () => {
       <button onClick={() => logout()}>Logout</button>
     </section>
   ) : (
-    <nav className="auth-buttons">
+    <nav>
       <ul className="access-buttons" >
         <li>
           <button>
-          <Link to={"/register"} className="register-button" >Register</Link>
+          <Link to={"/register"} className="auth-buttons" >Register</Link>
           </button>
         </li>
         <li>
           <button>
-            <Link to={"/"} className="login-button">Login</Link>
+            <Link to={"/"} className="auth-buttons">Login</Link>
           </button>
         </li>
       </ul>

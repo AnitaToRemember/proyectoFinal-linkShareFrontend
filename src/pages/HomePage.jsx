@@ -14,6 +14,7 @@ function HomePage() {
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage message={error} />
+
 return (
     <main>
         <header>

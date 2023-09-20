@@ -26,7 +26,7 @@ function useListLinks(id) {
 			}, [id])
 		
 			const addLink = (data) => {
-				setLinks([data, ...links])
+				setLinks([data.links])
 			};
 		
 			const removeLink = (id) => {

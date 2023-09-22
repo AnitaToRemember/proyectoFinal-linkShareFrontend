@@ -1,15 +1,9 @@
-import { useParams } from "react-router-dom"
-import useUser from "../hooks/useUser"
-import Loading from "../components/Loading"
 import { UserLinks } from "../components/UserLinks"
-import ErrorMessage from "../components/ErrorMessage"
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function MyLinks() { 
-	const { id } = useParams()
-	const { user, loading, error } = useUser(id)
-
-	if (loading) return <Loading />
-	if (error) return <ErrorMessage message={error} />
+	const { user } = useContext(AuthContext);
 
 		return (
 				<div className="all-links">

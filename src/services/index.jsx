@@ -31,8 +31,7 @@ export const loginUserService = async ({ email, password }) => {
   return json.token;
 };
 
-
-export const getMyUserDataService = async ({token}) => {
+ export const getMyUserDataService = async ({token}) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users`,{
     headers: {
       Authorization: token
@@ -44,7 +43,7 @@ export const getMyUserDataService = async ({token}) => {
     throw new Error(json.message);
   }
   return json.data;
-};
+}; 
 
 export const getAllLinksService = async () => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/links`, {

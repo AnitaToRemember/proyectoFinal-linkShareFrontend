@@ -97,9 +97,15 @@ if (!response.ok) {
 return json.data;
 };
 
-export const getUserLinksService = async (linkId) => {
+export const getUserLinksService = async (token) => {
 const response = await fetch(
-  `${import.meta.env.VITE_APP_BACKEND}/user/${linkId}/links`
+  `${import.meta.env.VITE_APP_BACKEND}/mylinks`,
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json', // Puedes ajustar el tipo de contenido según tus necesidades
+    },
+  }
 );
 
 const json = await response.json();

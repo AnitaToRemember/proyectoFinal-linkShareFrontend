@@ -4,7 +4,6 @@ import { AuthContext } from "../context/AuthContext";
 
 function MyLinks() { 
 	const { user } = useContext(AuthContext);
-
 		return (
 				<div className="all-links">
 						<h1>My links</h1>
@@ -13,7 +12,7 @@ function MyLinks() {
 							<p>User id: {user.id}</p>
 							<p>Registered on {new Date(user.createdAt).toLocaleString()}</p>
 						</section>
-						<UserLinks id={user.id} />
+						<UserLinks id={user.token} />
 							</div>
 	)
 }

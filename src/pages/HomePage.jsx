@@ -1,11 +1,11 @@
 import {Auth} from '../components/Auth'
-import ListAllLinks from '../components/ListAllLinks'
 import NewLink from '../components/NewLink'
 import useListLinks from '../hooks/useListLinks'
 import { AuthContext } from '../context/AuthContext'
 import { useContext } from 'react'
 import Loading from '../components/Loading'
 import ErrorMessage from '../components/ErrorMessage'
+import LinkPost from '../components/LinkPost'
 
 
 function HomePage() {
@@ -20,12 +20,16 @@ return (
         <header>
             <Auth />
         </header>
-        <div>
-        {user ? <NewLink addLink={addLink} /> : null}        
-        <ListAllLinks links={links} removeTweet={removeLink} />
-        </div>
+        <section>
+            {user ? <NewLink addLink={addLink} /> : null}
+            <h1>Latest tweets</h1>
+                {links.map((link) => (
+                    <LinkPost key={link.id} link={link} removeLink={removeLink} />
+            ))}
+        </section>
     </main>
     )
 }
 
 export default HomePage
+        

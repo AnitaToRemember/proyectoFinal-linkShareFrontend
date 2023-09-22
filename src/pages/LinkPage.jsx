@@ -1,24 +1,20 @@
 import { useParams } from "react-router"
 import useOneLink from "../hooks/useOneLink"
-import EachLinkPost from "../components/EachLinkPost"
+import LinkPost from "../components/LinkPost"
+import Loading from "../components/Loading"
+import ErrorMessage from "../components/ErrorMessage"
 
-const LinkPage = () => {
+function LinkPage ()  {
     const {id} = useParams()
+    const {link, loading, error} =useOneLink(id)
 
-    const {post, loading, error} =useOneLink(id)
-
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
-
-    if (error) {
-        return <h2>An error has ocurred</h2>
-    }
+    if (loading) return <Loading />;
+    if (error) return <ErrorMessage message={error} />;
     
     return (
         <section>
-            <h2>here goes one link</h2>
-            <EachLinkPost post={post}/>
+        <h1>Tweet</h1>
+        <LinkPost link={link} />
         </section>
 
     )

@@ -14,7 +14,7 @@ function useListLinks(id) {
 							? await getUserLinksService(id)
 							: await getAllLinksService()
 		
-						setLinks(data)
+						setLinks(data.links)
 					} catch (error) {
 						setError(error.message)
 					} finally {
@@ -26,11 +26,11 @@ function useListLinks(id) {
 			}, [id])
 		
 			const addLink = (data) => {
-				setLinks([data.links])
+				setLinks((prevLinks) => [data, ...prevLinks]);
 			};
 		
 			const removeLink = (id) => {
-				setLinks(links.filter((link) => link.id !== id))
+				setLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
 			};
 		
 			return { links, error, loading, addLink, removeLink }

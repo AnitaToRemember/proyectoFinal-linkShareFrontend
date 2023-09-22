@@ -43,7 +43,6 @@ function NewLink ({ addLink }) {
     
         <button className="posting-button">Share link</button>
         {error ? <p>{error}</p> : null}
-        {console.log(`this is the error I can't fix ---"${error}"--- NewLink.jsx`)}
         {loading ? <p>posting link...</p> : null}
         </form>
     </>

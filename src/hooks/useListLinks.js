@@ -30,6 +30,7 @@ function useListLinks(id) {
 			};
 		
 			const removeLink = (id) => {
+				console.log('Removing link with id:', id);
 				setLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
 			};
 		

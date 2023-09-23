@@ -1,29 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { deleteLinkService } from "../services";
+import useDeleteLink from "../hooks/useDeleteLink";
 import StarRating from "./StarRating";
 import "./LinkPost.css"
 
 function LinkPost ({ link, removeLink }) {
   const navigate = useNavigate();
-  const { token, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const { deleteLink } = useDeleteLink();
   const [error, setError] = useState("");
 
-  const deleteLink = async (linkId) => {
-    try {
-      await deleteLinkService({ linkId, token });
-
-      if (removeLink) {
-        removeLink(linkId);
-      } else {
+  const handleDeleteClick = async () => {
+    if (window.confirm("Are you sure?")) {
+      try {
+        await deleteLink(link.id, () => {
+          if(removeLink) {
+            removeLink(link.id)
+          }
         navigate("/home");
+        })
+      } catch (error) {
+        setError(error.message);
       }
-    } catch (error) {
-      setError(error.message);
     }
   };
-
+  
   return (
     <article className="list-all-links">
       <div className="link-post">
@@ -66,20 +68,15 @@ function LinkPost ({ link, removeLink }) {
 
       </div>
 
-      {user && user.id === link.id ? (
+      {user && user.id !==  link.id ? (
         <section>
-          <button
-            onClick={() => {
-              if (window.confirm("Are you sure?")) deleteLink(link.id);
-            }}
-          >
-            Delete link 🗑️
-          </button>
+          <button onClick={handleDeleteClick}>Delete link 🗑️</button>
           {error ? <p>{error}</p> : null}
         </section>
-      ) : null}
+      ) : ""}
     </article>
-  )
+  );
 }
+
 
 export default LinkPost

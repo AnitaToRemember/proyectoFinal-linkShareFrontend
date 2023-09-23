@@ -36,6 +36,7 @@ section {
     border: 1px solid #ccc; /* Borde gris */
     border-radius: 4px;
     background-color: #f5f8fa;
+    color: #333;
   }
   
   button {

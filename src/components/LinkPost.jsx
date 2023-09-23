@@ -65,15 +65,14 @@ function LinkPost ({ link, removeLink }) {
         on{" "} <Link to={`/link/${link.linkId}`}>
           {new Date(link.createdAt).toLocaleString()}
         </Link>
-
-      </div>
-
-      {user && user.id !==  link.id ? (
+        
+        {user && user.id !==  link.id ? (
         <section>
           <button onClick={handleDeleteClick}>Delete link 🗑️</button>
           {error ? <p>{error}</p> : null}
         </section>
       ) : ""}
+      </div>
     </article>
   );
 }

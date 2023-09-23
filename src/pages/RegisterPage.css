@@ -1,0 +1,80 @@
+/* Estilos para el formulario de registro */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1da1f2; 
+  }
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    border: none; /* Eliminar los bordes de los fieldset */
+  }
+  
+  label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333; /* Color de texto predeterminado */
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px;
+    background-color: #f5f8fa;
+  }
+  
+  button {
+    background-color: #1da1f2; 
+    color: #fff; /* Texto en color blanco */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0c8de8;
+  }
+  
+  p {
+    color: #333; 
+    margin-top: 10px;
+  }
+  
+  /* Estilos para los enlaces de texto */
+  h3 a {
+    color: #1da1f2; 
+    text-decoration: none;
+  }
+  
+  h3 a:hover {
+    text-decoration: underline;
+  }
+  
+  a {
+    color: #1da1f2; 
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  

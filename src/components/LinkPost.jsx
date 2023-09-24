@@ -6,11 +6,12 @@ import "./LinkPost.css"
 import useDeleteLink from "../hooks/useDeleteLink";
 
 function LinkPost ({ link, removeLink }) {
+  
   const navigate = useNavigate();
   const { user, token} = useContext(AuthContext);
   const { deleteLink, linkId} = useDeleteLink();
   const [error, setError] = useState("");
-
+  console.log("eve", linkId);
   const handleDeleteClick = async () => {
     if (window.confirm("Are you sure?")) {
       try {
@@ -67,7 +68,7 @@ function LinkPost ({ link, removeLink }) {
           {new Date(link.createdAt).toLocaleString()}
         </Link>
         
-        {token && user.id !== link.id ? (
+        {token && user && link && user.id !== link.id ? (
           <section>
             <button onClick={handleDeleteClick}>Delete link 🗑️</button>
             {error && <p>{error}</p>}

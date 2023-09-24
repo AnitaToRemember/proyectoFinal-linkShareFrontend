@@ -11,7 +11,7 @@ import LinkPost from '../components/LinkPost'
 function HomePage() {
     const { links, error, loading, addLink, removeLink } = useListLinks()
     const { user } = useContext(AuthContext)
-
+    console.log("evek", user);
     if (loading) return <Loading />
     if (error) return <ErrorMessage message={error} />
 
@@ -22,10 +22,11 @@ return (
         </header>
         <section>
             {user ? <NewLink addLink={addLink} /> : null}
-            <h1>Latest posts</h1>
+            
+                <h1>Latest posts</h1>
                 {links.map((link) => (
                     <LinkPost key={link.id} link={link} removeLink={removeLink} />
-            ))}
+                ))}
         </section>
     </main>
     )

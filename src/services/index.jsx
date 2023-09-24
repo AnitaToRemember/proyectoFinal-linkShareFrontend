@@ -97,11 +97,11 @@ if (!response.ok) {
 return json.data;
 };
 
-export const getUserLinksService = async ({token}) => {
+export const getUserLinksService = async (token) => {
   const response = await fetch(
   `${import.meta.env.VITE_APP_BACKEND}/mylinks`, {
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `${token}`
     },
   });
 

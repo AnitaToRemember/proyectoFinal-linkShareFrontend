@@ -4,11 +4,11 @@ import UserLinks from "../components/UserLinks";
 import "../components/MyLinks.css"
 
 function MyLinks() { 
-	const { user } = useContext(AuthContext);
+	const { user, token } = useContext(AuthContext);
 		return (
 				<div className="all-links">
 						<h2 className="user-title">Links posted by: {user.username}</h2>
-						<UserLinks id={user.id} />
+						<UserLinks token={token} />
 							</div>
 	)
 }

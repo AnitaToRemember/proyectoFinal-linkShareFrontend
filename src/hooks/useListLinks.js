@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getAllLinksService, getUserLinksService } from "../services"
 
-function useListLinks(id) {
+function useListLinks(token) {
 		const [links, setLinks] = useState([])
 		const [loading, setLoading] = useState(false)
 		const [error, setError] = useState("")
@@ -10,8 +10,8 @@ function useListLinks(id) {
 				const loadLinks = async () => {
 					try {
 						setLoading(true);
-						const data = id
-							? await getUserLinksService(id)
+						const data = token
+							? await getUserLinksService(token)
 							: await getAllLinksService()
 		
 						setLinks(data.links)
@@ -23,7 +23,7 @@ function useListLinks(id) {
 				};
 		
 				loadLinks();
-			}, [id])
+			}, [token])
 		
 			const addLink = (data) => {
 				setLinks((prevLinks) => [data, ...prevLinks]);

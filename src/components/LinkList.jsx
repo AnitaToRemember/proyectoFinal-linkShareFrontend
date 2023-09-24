@@ -5,7 +5,7 @@ function LinkList ({ links, removeLink }) {
     <ul className="link-list">
       {links.map((link) => {
         return (
-          <li key={link} className="user-link">
+          <li key={link.id} className="user-link">
             <LinkPost link={link} removePost={removeLink} />
           </li>
         );

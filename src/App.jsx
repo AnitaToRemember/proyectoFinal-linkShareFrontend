@@ -11,6 +11,7 @@ import AccountPage from './pages/AccountPage'
 import LinkPage from './pages/LinkPage'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
+import FilterPage from './pages/FilterPage'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
           <Route path="/home" element={<HomePage />}/>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/mylinks" element={<MyLinks />} />
-          <Route path="/filter"element={<p>filter</p>} />
+          <Route path="/filter"element={<FilterPage/>} />
           <Route path="/links/:id" element={<LinkPage />}/>
           <Route path="/account" element={<AccountPage/>}/>
           <Route path="*" element={<NotFoundPage /> }/>

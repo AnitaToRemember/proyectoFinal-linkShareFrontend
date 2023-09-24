@@ -7,6 +7,8 @@ function useDeleteLink() {
 	const [error, setError] = useState("");
 
 	const deleteLink = async (linkId, onSuccess) => {
+		{console.log(`2. to know what is ${linkId}  `)}
+
 		try {
 			await deleteLinkService({ linkId, token });
 

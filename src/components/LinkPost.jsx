@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import useDeleteLink from "../hooks/useDeleteLink";
 import StarRating from "./StarRating";
 import "./LinkPost.css"
+import useDeleteLink from "../hooks/useDeleteLink";
 
 function LinkPost ({ link, removeLink }) {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
-  const { deleteLink } = useDeleteLink();
+  const { user, token} = useContext(AuthContext);
+  const { deleteLink, linkId} = useDeleteLink();
   const [error, setError] = useState("");
 
   const handleDeleteClick = async () => {
@@ -28,6 +28,7 @@ function LinkPost ({ link, removeLink }) {
   
   return (
     <article className="list-all-links">
+      {console.log(`1. to know what is ${link.id} && ${linkId}  `)}
       <div className="link-post">
         
         <h2 className="title">
@@ -66,12 +67,13 @@ function LinkPost ({ link, removeLink }) {
           {new Date(link.createdAt).toLocaleString()}
         </Link>
         
-        {user && user.id !==  link.id ? (
-        <section>
-          <button onClick={handleDeleteClick}>Delete link 🗑️</button>
-          {error ? <p>{error}</p> : null}
-        </section>
-      ) : ""}
+        {token && user.id !== link.id ? (
+          <section>
+            <button onClick={handleDeleteClick}>Delete link 🗑️</button>
+            {error && <p>{error}</p>}
+          </section>
+        ) : null}
+
       </div>
     </article>
   );

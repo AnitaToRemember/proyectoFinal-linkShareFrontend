@@ -22,7 +22,7 @@ return (
         </header>
         <section>
             {user ? <NewLink addLink={addLink} /> : null}
-            <h1>Latest tweets</h1>
+            <h1>Latest posts</h1>
                 {links.map((link) => (
                     <LinkPost key={link.id} link={link} removeLink={removeLink} />
             ))}

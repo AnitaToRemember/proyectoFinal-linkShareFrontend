@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import defaultAvatar from '../assets/default-avatar.png'
 import './AccountPage.css';
+import { AuthContext } from "../context/AuthContext";
 
 const AccountPage = () => {
-  const [avatar, setAvatar] = useState("/path-to-default-avatar.png"); // Ruta de la imagen de avatar predeterminada
-  const [isEditingAvatar, setIsEditingAvatar] = useState(false);
-  const [newAvatar, setNewAvatar] = useState(null); // Almacenar la nueva imagen de avatar aquí
+  let [avatar, setAvatar] = useState(defaultAvatar); // Ruta de la imagen de avatar predeterminada
+  const { user } = useContext(AuthContext)
+  if (user.avatar) {
+    avatar = user.avatar;
+  }
+  //const [isEditingAvatar, setIsEditingAvatar] = useState(false);
+  //const [newAvatar, setNewAvatar] = useState(null); // Almacenar la nueva imagen de avatar aquí
 
-  const handleAvatarChange = () => {
+  /*const handleAvatarChange = () => {
     if (newAvatar) {
       
       setAvatar(newAvatar);
       setIsEditingAvatar(false);
     }
-  };
+  };*/
 
-  const handleFileChange = (e) => {
+  /*const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -23,7 +29,7 @@ const AccountPage = () => {
       };
       reader.readAsDataURL(file);
     }
-  };
+  };*/
 
   return (
     <section>
@@ -33,7 +39,7 @@ const AccountPage = () => {
         {/* Mostrar la foto de perfil actual */}
         <div className="avatar-container">
           <img src={avatar} alt="Profile Avatar" className="avatar" />
-          {isEditingAvatar && (
+          {/* {isEditingAvatar && (
             <div className="avatar-edit">
               <input
                 type="file"
@@ -42,7 +48,7 @@ const AccountPage = () => {
               />
               <button onClick={handleAvatarChange}>Save</button>
             </div>
-          )}
+          )} */}
         </div>
         <p><strong>Username:</strong> johndoe</p>
         <p><strong>Email:</strong> john@example.com</p>
@@ -52,11 +58,11 @@ const AccountPage = () => {
       <div className="account-actions">
         <h2>Account Actions</h2>
         {/* Botón para cambiar la foto de perfil */}
-        {isEditingAvatar ? (
+        {/*{isEditingAvatar ? (
           <button onClick={() => setIsEditingAvatar(false)}>Cancel</button>
         ) : (
           <button onClick={() => setIsEditingAvatar(true)}>Change Avatar</button>
-        )}
+        )}*/}
         <button>Edit Profile</button>
         <button>Change Password</button>
         <button>Delete Account</button>

@@ -129,7 +129,7 @@ if (!response.ok) {
 }
 };
 
-export const starRatingService = async (value, linkId, token) => {
+export const starRatingService = async (linkId, value, token) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/links/${linkId}/votes`, {
     method: "POST",
     body: value,

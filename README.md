@@ -2,4 +2,4 @@
 
 - copiar `.env.example` a `.env`
 - `npm install`
-- `npm start`
+- `npm run dev`

@@ -1,100 +1,73 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useRef, useState } from "react";
 import defaultAvatar from '../assets/default-avatar.png'
 import '../styles/AccountPage.css';
 import { AuthContext } from "../context/AuthContext";
+import { uploadAvatar } from "../services";
 
 const AccountPage = () => {
-  let [avatar, setAvatar] = useState(defaultAvatar); // Ruta de la imagen de avatar predeterminada
-  const { user } = useContext(AuthContext)
-  if (user.avatar) {
-    avatar = user.avatar
-  }
+  const { user, token } = useContext(AuthContext)
+  const [avatar, setAvatar] = useState(user.avatar || defaultAvatar); // Ruta de la imagen de avatar predeterminada
+  const [selectedAvatarFile, setSelectedAvatarFile] = useState(null);
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
-  const [newAvatar, setNewAvatar] = useState(null); // Almacenar la nueva imagen de avatar aquí
-  const [refreshImage, setRefreshImage] = useState(false);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0]
-    setNewAvatar(file)
-    const reader = new FileReader()
-    reader.onload = (event) => {
-      setAvatar(event.target.result)
+  const fileInputRef = useRef(null);
+
+  const showEditAvatar = () => {
+    setIsEditingAvatar(true);
+  }
+
+  const handleAvatarClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleAvatarChange = (e) => {
+    setSelectedAvatarFile(e.target.files[0]);
+    setAvatar(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const uploadImage = async (imageFile) => {
+    try {  
+      await uploadAvatar({ imageFile, token })
+      setAvatar(URL.createObjectURL(imageFile));
+    } catch (error) {
+      console.log(error);
     }
-    reader.readAsDataURL(file)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (newAvatar) {
-      console.log("Manu");
-      console.log(newAvatar);
-      setRefreshImage(true);
+    setIsEditingAvatar(false);
+    if (selectedAvatarFile) {
+      uploadImage(selectedAvatarFile)
     }
   }
 
-  useEffect(() => {
-    if (refreshImage) {
-      // Realizar alguna acción para cargar la imagen actualizada (puedes realizar una solicitud al servidor si es necesario)
-      // Luego, una vez que la imagen se ha actualizado, establecer refreshImage nuevamente en false
-      setRefreshImage(false);
-    }
-  }, [refreshImage]);
-
-
-  /*const handleAvatarChange = (e) => {
-    setNewAvatar(e.target.files[0])
-      setAvatar(newAvatar);
-      setIsEditingAvatar(false);
-    
-  };*/
-
-  /*const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setNewAvatar(event.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };*/
-  const handleAvatarClick = () => {
-    setIsEditingAvatar(true);
-  };
   return (
     <section>
       <h1>Your Account</h1>
       <div className="account-details">
         <h2>Profile Information</h2>
         <div className="avatar-container">
-          <img src={`${avatar}?${Date.now()}`}  alt="Profile Avatar" className="avatar" onClick={handleAvatarClick} />
+          <img key={avatar} src={avatar}  alt="Profile Avatar" className="avatar" onClick={showEditAvatar} />
           {isEditingAvatar && (
             <div className="avatar-edit">
-              <form onSubmit={handleSubmit}>
-                <input type="file" accept="image/*" onChange={handleFileChange}/>
-                <button type="submit">Enviar</button>
-              </form>
-              {/*<input 
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-              />
-          <button onClick={handleAvatarChange}>Save</button>*/}
-            </div>
+            <input type="file" id="fileInput" className="custom-file-input" accept="image/*" onChange={handleAvatarChange} ref={fileInputRef} />
+            <label htmlFor="fileInput">
+              <button onClick={handleAvatarClick}> Test </button>
+            </label>
+            <button type="submit"  className="save-button" onClick={handleSubmit}>
+              Send
+            </button>
+          </div>
+          
           )}
         </div>
-        <p><strong>Username:</strong> johndoe</p>
-        <p><strong>Email:</strong> john@example.com</p>
-        <p><strong>Full Name:</strong> John Doe</p>
+        <p><strong>Username:</strong> {user.username}</p>
+        <p><strong>Email:</strong> {user.email}</p>
         {/* Otros detalles del perfil */}
       </div>
       <div className="account-actions">
         <h2>Account Actions</h2>
-        {/*{isEditingAvatar ? (
-          <button onClick={() => setIsEditingAvatar(false)}>Cancel</button>
-        ) : (
-          <button onClick={() => setIsEditingAvatar(true)}>Change Avatar</button>
-        )}*/}
         <button>Change Password</button>
         <button>Delete Account</button>
       </div>
@@ -103,4 +76,3 @@ const AccountPage = () => {
 };
 
 export default AccountPage;
-

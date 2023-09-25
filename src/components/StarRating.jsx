@@ -1,13 +1,32 @@
-function StarRating({ value }) {
+import { useState } from "react";
+import { starRatingService } from "../services";
+
+function StarRating({ value, linkId }) {
+	const [hoveredValue, setHoveredValue] = useState(null);
+
+  const handleStarClick = async (clickedValue) => {
+    try {
+      await starRatingService(clickedValue, linkId);
+      // If the vote is successful, you can update the state or perform any other actions.
+    } catch (error) {
+      console.error('Error while voting:', error);
+    }
+  };
+
 	return (
 		<div className="starRating">
-			{value >= 1 ? '⭐' : '☆'}
-			{value >= 2 ? '⭐' : '☆'}
-			{value >= 3 ? '⭐' : '☆'}
-			{value >= 4 ? '⭐' : '☆'}
-			{value >= 5 ? '⭐' : '☆'}
-		</div>
-	)
+      {[1, 2, 3, 4, 5].map((starValue) => (
+        <span
+          key={starValue}
+          onClick={() => handleStarClick(starValue)}
+          onMouseEnter={() => setHoveredValue(starValue)}
+          onMouseLeave={() => setHoveredValue(null)}
+        >
+          {starValue <= (hoveredValue || value) ? '⭐' : '☆'}
+        </span>
+      ))}
+    </div>
+  );
 }
 
-export default StarRating
+export default StarRating;

@@ -28,7 +28,6 @@ function LinkPost ({ link, removeLink }) {
   
   return (
     <article className="list-all-links">
-      {console.log(`1. to know what is ${link.id} && ${linkId}  `)}
       <div className="link-post">
         
         <h2 className="title">

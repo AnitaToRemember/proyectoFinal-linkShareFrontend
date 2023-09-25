@@ -1,6 +1,5 @@
+# ShareIn App - Final Project
 
-
-
-installed library React Router to add routing to the navigation bar buttons to navigate to different pages within the website.
-
-npm install 
+- copiar `.env.example` a `.env`
+- `npm install`
+- `npm start`

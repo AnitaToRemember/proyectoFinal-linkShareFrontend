@@ -11,7 +11,6 @@ function LinkPost ({ link, removeLink }) {
   const { user, token} = useContext(AuthContext);
   const { deleteLink, linkId} = useDeleteLink();
   const [error, setError] = useState("");
-  console.log("eve", linkId);
   const handleDeleteClick = async () => {
     if (window.confirm("Are you sure?")) {
       try {

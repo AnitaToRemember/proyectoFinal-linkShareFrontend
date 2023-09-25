@@ -1,19 +1,22 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import defaultAvatar from "../assets/default-avatar.png";
 import { AuthContext } from "../context/AuthContext";
 import { uploadAvatar } from "../services";
 import { Link } from "react-router-dom";
-import "../styles/AccountPage.css";
+import "../styles/pages/AccountPage.css";
 
 const AccountPage = () => {
   const { user, token } = useContext(AuthContext);
-  const [avatar, setAvatar] = useState(user ? user.avatar : defaultAvatar)
-  let userAvatarURL = user ? user.avatar || defaultAvatar : defaultAvatar;
+  const [avatar, setAvatar] = useState(null);
   const [selectedAvatarFile, setSelectedAvatarFile] = useState(null);
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
-  
-
   const fileInputRef = useRef(null);
+
+// useEffect para detectar cambios en 'user'
+  useEffect(() => {
+    // Aquí puedes actualizar el estado del avatar cuando 'user' cambie
+    setAvatar((user && user.avatar) ? user.avatar : defaultAvatar);
+  }, [user]); // [user] es la dependencia que se debe observar
 
   const showEditAvatar = () => {
     setIsEditingAvatar(true);
@@ -26,7 +29,6 @@ const AccountPage = () => {
   const handleAvatarChange = (e) => {
     setSelectedAvatarFile(e.target.files[0]);
     setAvatar(URL.createObjectURL(e.target.files[0]));
-    userAvatarURL = avatar
   };
 
   const uploadImage = async (imageFile) => {
@@ -55,7 +57,7 @@ const AccountPage = () => {
         <div className="avatar-container">
           <img
             key={avatar}
-            src={userAvatarURL}
+            src={avatar}
             alt="Profile Avatar"
             className="avatar"
             onClick={showEditAvatar}

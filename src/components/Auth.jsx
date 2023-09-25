@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
-import "./Auth.css"
+import "../styles/components/Auth.css"
 
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { filterService } from "../services";
 import LinkPost from "../components/LinkPost";
-import "../styles/index.css"; 
+import "../styles/pages/FilterPage.css"; 
 
 function FilterPage() {
   const [sortBy, setSortBy] = useState("date"); 

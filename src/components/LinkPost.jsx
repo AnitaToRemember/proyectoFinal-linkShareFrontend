@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import StarRating from "./StarRating";
-import "./LinkPost.css"
+import "../styles/components/LinkPost.css"
 import useDeleteLink from "../hooks/useDeleteLink";
 
 function LinkPost ({ link, removeLink }) {

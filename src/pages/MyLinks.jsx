@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import UserLinks from "../components/UserLinks";
-import "../components/MyLinks.css"
+import "../styles/pages/MyLinks.css"
 import { Auth } from "../components/Auth";
 
 function MyLinks() { 

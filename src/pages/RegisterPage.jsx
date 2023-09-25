@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUserService } from "../services/index";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/RegisterPage.css";
+import "../styles/pages/RegisterPage.css";
 
 const RegisterPage = () => {
   const navigate = useNavigate();

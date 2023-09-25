@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { changePasswordService } from "../services/index";
-import "../styles/RegisterPage.css";
+import "../styles/pages/RegisterPage.css";
 import { Link } from "react-router-dom";
 
 const ChangePasswordPage = () => {

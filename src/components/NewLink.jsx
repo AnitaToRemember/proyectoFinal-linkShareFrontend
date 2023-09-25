@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { sendLinkService } from "../services"
-import "../components/NewLink.css"
+import "../styles/components/NewLink.css"
 
 function NewLink ({ addLink }) {
     const { token } = useContext(AuthContext)

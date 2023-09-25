@@ -25,7 +25,7 @@ const RegisterPage = () => {
     try {
       await registerUserService({userName, email, password: pass1})
 
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       setError(error.message)
     }

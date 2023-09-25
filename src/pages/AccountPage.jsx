@@ -53,7 +53,7 @@ const AccountPage = () => {
             <div className="avatar-edit">
             <input type="file" id="fileInput" className="custom-file-input" accept="image/*" onChange={handleAvatarChange} ref={fileInputRef} />
             <label htmlFor="fileInput">
-              <button onClick={handleAvatarClick}> Test </button>
+              <button onClick={handleAvatarClick}> Save </button>
             </label>
             <button type="submit"  className="save-button" onClick={handleSubmit}>
               Send

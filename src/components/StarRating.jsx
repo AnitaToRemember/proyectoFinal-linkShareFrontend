@@ -7,7 +7,6 @@ function StarRating({ value, linkId }) {
   const handleStarClick = async (clickedValue) => {
     try {
       await starRatingService(clickedValue, linkId);
-      // If the vote is successful, you can update the state or perform any other actions.
     } catch (error) {
       console.error('Error while voting:', error);
     }

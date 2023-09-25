@@ -1,32 +1,49 @@
-.access-buttons{
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding:0 2rem;
-    position: relative;
-    margin-top: 8rem;
+/* Auth Styles */
+.auth-buttons {
+  color: var(--white); 
+  background-color: var(--logoText); 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.logged-user {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    list-style: none;
+.logged-user-container {
+  display: flex; 
+  align-items: center; 
 }
-
-.auth-buttons{
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    list-style: none;
-}
+	
+	.logged-user {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		padding: 10px 20px;
+		background-color: var(--white); 
+		color: var(--logoText); 
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	
+	.logged-user a {
+		color: var(--logoText); 
+		text-decoration: none;
+	}
+	
+	.access-buttons {
+		display: flex;
+		justify-content: space-around;
+		list-style: none;
+		padding: 0 2rem;
+		position: relative;
+		margin-top: 2rem;
+	}
+	
+	.auth-buttons:hover {
+		background-color: #00acee; 
+	}

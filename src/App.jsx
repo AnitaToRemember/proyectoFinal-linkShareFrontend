@@ -13,7 +13,7 @@ import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
 import FilterPage from './pages/FilterPage'
 import PasswordRecoveryPage from './pages/PasswordRecoveryPage'
-import ChangeUserPassword from './pages/ChangeUserPassword'
+import ChangePasswordPage from './pages/ChangePasswordPage'
 
 
 function App() {
@@ -31,8 +31,8 @@ function App() {
           <Route path="/filter"element={<FilterPage/>} />
           <Route path="/links/:id" element={<LinkPage />}/>
           <Route path="/account" element={<AccountPage/>}/>
-          <Route path="/change-password" element={<ChangeUserPassword/>}/>
-          <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
+          <Route path="/change-password" element={<ChangePasswordPage/>}/>
+          <Route path="/password-recovery" element={<PasswordRecoveryPage/>} />
           <Route path="*" element={<NotFoundPage /> }/>
         </Routes>
       { user ? <NavigationBar /> : null}

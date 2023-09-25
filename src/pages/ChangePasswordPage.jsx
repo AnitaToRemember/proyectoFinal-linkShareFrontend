@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { registerUserService } from "../services/index";
 import "../styles/RegisterPage.css";
+import { Link } from "react-router-dom";
 
-const ChangeUserPassword = () => {
+const ChangePasswordPage = () => {
   //const [oldPass, setOldpass] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
@@ -65,12 +66,11 @@ const ChangeUserPassword = () => {
         <button>Save</button>
         {error ? <p>{error}</p> : null}
       </form>
-
-      <div>
-         <a href="./account">Cancel</a>
-      </div>
+      <button >
+          <Link to="/account">Cancel</Link>
+        </button>
     </section>
   );
 };
 
-export default ChangeUserPassword;
+export default ChangePasswordPage;

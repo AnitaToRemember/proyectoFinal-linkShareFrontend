@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { filterService } from "../services";
 import LinkPost from "../components/LinkPost";
+import "./FilterPage.css"; 
 
 function FilterPage() {
-  const [sortBy, setSortBy] = useState("date"); // Default sorting option
-  const [keyword, setKeyword] = useState(""); // Keyword for filtering
+  const [sortBy, setSortBy] = useState("date"); 
+  const [keyword, setKeyword] = useState(""); 
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Fetch posts based on the selected sorting criteria when sortBy or keyword changes
     async function fetchFilteredPosts() {
       setLoading(true);
       try {
-        const data = await filterService(sortBy, keyword); // Use filterService to fetch data
+        const data = await filterService(sortBy, keyword); 
         setFilteredPosts(data.links);
       } catch (error) {
         console.error("Error fetching filtered posts:", error);
@@ -26,35 +26,37 @@ function FilterPage() {
   }, [sortBy, keyword]);
 
   return (
-    <div>
-      <h2>Filter Posts</h2>
-      <div>
-        <label htmlFor="sortBy">Sort by:</label>
+    <div className="filter-container"> 
+      <h2 className="filter-title">Filter Posts</h2>
+      <div className="filter-select-container"> 
+        <label htmlFor="sortBy" className="filter-label">Sort by:</label>
         <select
           id="sortBy"
           onChange={(e) => setSortBy(e.target.value)}
           value={sortBy}
+          className="filter-select"
         >
           <option value="date">Date</option>
           <option value="votes">Rating</option>
         </select>
       </div>
-      <div>
-        <label htmlFor="keyword">Filter by Keyword:</label>
+      <div className="filter-input-container"> 
+        <label htmlFor="keyword" className="filter-label">Filter by Keyword:</label>
         <input
           type="text"
           id="keyword"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
+          className="filter-input" 
         />
       </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <p className="filter-loading">Loading...</p> 
       ) : (
-        <ul>
+        <ul className="filter-post-list">
           {filteredPosts.map((link) => (
-            <li key={link.id}>
+            <li key={link.id} className="filter-post-item"> 
               <LinkPost link={link} />
             </li>
           ))}

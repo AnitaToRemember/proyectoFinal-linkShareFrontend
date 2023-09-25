@@ -44,7 +44,7 @@ function LinkPost ({ link, removeLink }) {
         </p>
 
         <span className="username">
-          {link.username}
+          @{link.username}
         </span>
         
         <span className="votes">
@@ -58,14 +58,6 @@ function LinkPost ({ link, removeLink }) {
         <p className="date">
           {link.id}
         </p>
-
-        By <Link to={`/user/${link.user}`}>
-          {link.email}
-        </Link> 
-
-        on{" "} <Link to={`/link/${link.linkId}`}>
-          {new Date(link.createdAt).toLocaleString()}
-        </Link>
         
         {token && user && link && user.id !== link.id ? (
           <section>

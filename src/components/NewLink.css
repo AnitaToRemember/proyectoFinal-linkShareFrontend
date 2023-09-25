@@ -1,7 +1,58 @@
-.new-link{
-    margin-top: 6rem;
-}
-
-.posting-button{
-    margin-top: 2rem;
-}
+/* NewLink Styles */
+.new-link {
+		border: 1px solid #ccc;
+		margin-top: 2rem;
+		border-radius: 8px;
+		padding: 16px;
+		background-color: var(--white);
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	.new-link fieldset {
+		margin-bottom: 16px;
+	}
+	
+	.new-link label {
+		display: block;
+		font-weight: bold;
+		margin-bottom: 4px;
+	}
+	
+	.new-link input[type="text"],
+	.new-link input[type="url"],
+	.new-link textarea {
+		width: 100%;
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 14px;
+	}
+	
+	.new-link textarea {
+		resize: vertical;
+	}
+	
+	.new-link button.posting-button {
+		background-color: var(--logoText);
+		color: white;
+		border: none;
+		border-radius: 4px;
+		padding: 8px 16px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+	
+	.new-link button.posting-button:hover {
+		background-color: #00acee; /* Twitter blue color */
+	}
+	
+	.new-link p {
+		color: red; /* Error message color */
+		font-size: 14px;
+		margin-top: 8px;
+	}
+	
+	.new-link p.posting-link {
+		color: var(--logoText); /* Success message color */
+	}
+	

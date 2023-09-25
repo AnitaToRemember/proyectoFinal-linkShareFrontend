@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { loginUserService } from "../services/index";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -26,7 +27,9 @@ const LoginPage = () => {
   return (
     <section>
       <h2>Hey, Welcome back...</h2>
-      <h3>Don’t have an account? <a href="/register">Create an account.</a></h3>
+      <h3>
+        Don’t have an account? <a href="/register">Create an account.</a>
+      </h3>
       <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="email"></label>
@@ -51,9 +54,10 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
-
         <div>
-          <h3>Forgotten password?</h3>
+          <div>
+            <Link to="/password-recovery">Forgotten password?</Link>
+          </div>
         </div>
         <button>Login</button>
         {error ? <p>{error}</p> : null}

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { registerUserService } from '../services/index';
+import { registerUserService } from "../services/index";
 import { useNavigate } from "react-router-dom";
-import '../styles/RegisterPage.css';
-
-
+import "../styles/RegisterPage.css";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -11,32 +9,31 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
 
-    if(pass1 !==pass2) {
-      setError('Passwords do not match');
+    if (pass1 !== pass2) {
+      setError("Passwords do not match");
       return;
     }
 
     try {
-      await registerUserService({userName, email, password: pass1})
+      await registerUserService({ userName, email, password: pass1 });
 
       navigate("/");
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     }
-
-  }
+  };
 
   return (
     <section>
       <h1>Create your account</h1>
       <form onSubmit={handleForm}>
-         <fieldset>
+        <fieldset>
           <label htmlFor="userName">User Name </label>
           <input
             type="userName"
@@ -89,7 +86,6 @@ const RegisterPage = () => {
           Already have an account? <a href="/">Log in</a>
         </h3>
         <a href="./home">Continue as a guest</a>
-        
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ import LinkPage from './pages/LinkPage'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
 import FilterPage from './pages/FilterPage'
+import PasswordRecoveryPage from './pages/PasswordRecoveryPage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <HeaderBar />
         <Routes>
           <Route path="/" element={<LoginPage />}/>
+          <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
           <Route path="/home" element={<HomePage />}/>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/mylinks" element={<MyLinks />} />

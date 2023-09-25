@@ -1,4 +1,4 @@
-
+/* General section styles */
 section {
   display: flex;
   flex-direction: column;
@@ -6,20 +6,24 @@ section {
   padding: 20px;
 }
 
+/* Heading styles */
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #1da1f2; 
+  color: #1da1f2;
 }
 
+/* Account details container styles */
 .account-details {
   text-align: center;
 }
 
+/* Avatar container styles */
 .avatar-container {
   position: relative;
 }
 
+/* Avatar image styles */
 .avatar {
   width: 150px;
   height: 150px;
@@ -27,13 +31,15 @@ h1 {
   object-fit: cover;
 }
 
+/* Avatar edit container styles */
 .avatar-edit {
-  position: relative; /* Cambiado a relative */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Hidden file input for avatar upload */
 input[type="file"] {
   opacity: 0;
   position: absolute;
@@ -41,8 +47,8 @@ input[type="file"] {
   height: 0;
 }
 
-
-.custom-file-input {
+/* Custom label for file input */
+.custom-label {
   background-color: #1da1f2;
   color: #fff;
   padding: 10px 15px;
@@ -55,16 +61,12 @@ input[type="file"] {
   display: inline-block;
 }
 
-/* Pseudo-estilo para el input[type="file"] personalizado */
-.custom-file-input::before {
-  content: "Seleccionar Archivo"; /* Texto que se muestra en el botón personalizado */
-}
-
-/* Establece un estilo visual cuando se pasa el mouse sobre el botón personalizado */
+/* Visual style when hovering over the custom file input */
 .custom-file-input:hover {
   background-color: #0c8de8;
 }
 
+/* Custom file input button styles */
 .custom-file-input-button {
   background-color: #1da1f2;
   color: #fff;
@@ -77,6 +79,7 @@ input[type="file"] {
   text-align: center;
 }
 
+/* General button styles */
 button {
   background-color: #1da1f2;
   color: #fff;
@@ -88,18 +91,19 @@ button {
   margin-top: 10px;
 }
 
+/* Button hover effect */
 button:hover {
   background-color: #0c8de8;
 }
 
-/* Estilos para los enlaces de texto */
+/* Text links styles */
 h2 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #333; 
+  color: #333;
 }
 
-/* Estilos para el botón "Cambiar Avatar" */
+/* Styles for the "Change Avatar" button */
 .avatar-edit button {
   background-color: #1da1f2;
   color: #fff;
@@ -111,11 +115,12 @@ h2 {
   margin-top: 10px;
 }
 
+/* Hover effect for "Change Avatar" button */
 .avatar-edit button:hover {
   background-color: #0c8de8;
 }
 
-/* Estilos para el botón "Guardar" */
+/* Styles for the "Save" button */
 .avatar-edit .save-button {
   background-color: #1da1f2;
   color: #fff;
@@ -124,9 +129,27 @@ h2 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px; /* Aumentar el margen superior para separar del avatar */
+  margin-top: 20px; /* Increase top margin to separate from avatar */
 }
 
+/* Hover effect for the "Save" button */
 .avatar-edit .save-button:hover {
   background-color: #0c8de8;
+}
+
+/* Styles for buttons with links */
+.account-actions button {
+  background-color: #1da1f2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Styles for the link within a button */
+.account-actions button a {
+  text-decoration: none;
+  color: inherit;
 }

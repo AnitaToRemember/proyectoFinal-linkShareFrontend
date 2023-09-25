@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/FilterPage.css"; 
 
 function PasswordRecoveryPage() {
   const [email, setEmail] = useState("");

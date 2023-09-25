@@ -1,11 +1,12 @@
 import { useContext, useRef, useState } from "react";
-import defaultAvatar from '../assets/default-avatar.png'
-import '../styles/AccountPage.css';
+import defaultAvatar from "../assets/default-avatar.png";
+import "../styles/AccountPage.css";
 import { AuthContext } from "../context/AuthContext";
 import { uploadAvatar } from "../services";
+import { Link } from "react-router-dom";
 
 const AccountPage = () => {
-  const { user, token } = useContext(AuthContext)
+  const { user, token } = useContext(AuthContext);
   const [avatar, setAvatar] = useState(user.avatar || defaultAvatar); // Ruta de la imagen de avatar predeterminada
   const [selectedAvatarFile, setSelectedAvatarFile] = useState(null);
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
@@ -14,7 +15,7 @@ const AccountPage = () => {
 
   const showEditAvatar = () => {
     setIsEditingAvatar(true);
-  }
+  };
 
   const handleAvatarClick = () => {
     fileInputRef.current.click();
@@ -26,21 +27,21 @@ const AccountPage = () => {
   };
 
   const uploadImage = async (imageFile) => {
-    try {  
-      await uploadAvatar({ imageFile, token })
+    try {
+      await uploadAvatar({ imageFile, token });
       setAvatar(URL.createObjectURL(imageFile));
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsEditingAvatar(false);
     if (selectedAvatarFile) {
-      uploadImage(selectedAvatarFile)
+      uploadImage(selectedAvatarFile);
     }
-  }
+  };
 
   return (
     <section>
@@ -48,27 +49,49 @@ const AccountPage = () => {
       <div className="account-details">
         <h2>Profile Information</h2>
         <div className="avatar-container">
-          <img key={avatar} src={avatar}  alt="Profile Avatar" className="avatar" onClick={showEditAvatar} />
+          <img
+            key={avatar}
+            src={avatar}
+            alt="Profile Avatar"
+            className="avatar"
+            onClick={showEditAvatar}
+          />
           {isEditingAvatar && (
             <div className="avatar-edit">
-            <input type="file" id="fileInput" className="custom-file-input" accept="image/*" onChange={handleAvatarChange} ref={fileInputRef} />
-            <label htmlFor="fileInput">
-              <button onClick={handleAvatarClick}> Save </button>
-            </label>
-            <button type="submit"  className="save-button" onClick={handleSubmit}>
-              Send
-            </button>
-          </div>
-          
+              <input
+                type="file"
+                id="fileInput"
+                className="custom-file-input"
+                accept="image/*"
+                onChange={handleAvatarChange}
+                ref={fileInputRef}
+              />
+              <label htmlFor="fileInput">
+                <button onClick={handleAvatarClick}> Select the file </button>
+              </label>
+              <button
+                type="submit"
+                className="save-button"
+                onClick={handleSubmit}
+              >
+                Send
+              </button>
+            </div>
           )}
         </div>
-        <p><strong>Username:</strong> {user.username}</p>
-        <p><strong>Email:</strong> {user.email}</p>
+        <p>
+          <strong>Username:</strong> {user.username}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
         {/* Otros detalles del perfil */}
       </div>
       <div className="account-actions">
         <h2>Account Actions</h2>
-        <button>Change Password</button>
+        <button className="change-password-button">
+          <Link to="/change-password">Change Password</Link>
+        </button>
         <button>Delete Account</button>
       </div>
     </section>

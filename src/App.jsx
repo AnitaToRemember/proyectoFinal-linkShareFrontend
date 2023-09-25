@@ -28,11 +28,11 @@ function App() {
           <Route path="/home" element={<HomePage />}/>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/mylinks" element={<MyLinks />} />
-          <Route path="/filter"element={<FilterPage/>} />
+          <Route path="/filter"element={<FilterPage />} />
           <Route path="/links/:id" element={<LinkPage />}/>
-          <Route path="/account" element={<AccountPage/>}/>
-          <Route path="/change-password" element={<ChangePasswordPage/>}/>
-          <Route path="/password-recovery" element={<PasswordRecoveryPage/>} />
+          <Route path="/account" element={<AccountPage />}/>
+          <Route path="/change-password" element={<ChangePasswordPage />}/>
+          <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
           <Route path="*" element={<NotFoundPage /> }/>
         </Routes>
       { user ? <NavigationBar /> : null}

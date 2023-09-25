@@ -1,28 +1,30 @@
-import { useState } from "react";
-import { registerUserService } from "../services/index";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { changePasswordService } from "../services/index";
 import "../styles/RegisterPage.css";
 import { Link } from "react-router-dom";
 
 const ChangePasswordPage = () => {
-  //const [oldPass, setOldpass] = useState("");
+  const { token } = useContext(AuthContext);
+  const [oldPass, setOldPass] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleForm = async (e) => {
     e.preventDefault();
-    setError("");
+    setMessage("");
 
     if (pass1 !== pass2) {
-      setError("Passwords do not match");
+      setMessage("Passwords Don’t match");
       return;
     }
 
     try {
-      await registerUserService({ password: pass1 });
-
+      await changePasswordService({ oldPassword: oldPass, newPassword: pass1, token });
+      setMessage("password changed successfully");
     } catch (error) {
-      setError(error.message);
+      setMessage(error.message);
     }
   };
 
@@ -37,7 +39,7 @@ const ChangePasswordPage = () => {
             id="oldPass"
             name="oldPass"
             required
-            //onChange={(e) => setOldPass(e.target.value)}
+            onChange={(e) => setOldPass(e.target.value)}
           />
         </fieldset>
 
@@ -64,7 +66,7 @@ const ChangePasswordPage = () => {
         </fieldset>
 
         <button>Save</button>
-        {error ? <p>{error}</p> : null}
+        {message ? <p>{message}</p> : null}
       </form>
       <button >
           <Link to="/account">Cancel</Link>

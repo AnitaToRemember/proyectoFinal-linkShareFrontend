@@ -1,15 +1,17 @@
 import { useContext, useRef, useState } from "react";
 import defaultAvatar from "../assets/default-avatar.png";
-import "../styles/AccountPage.css";
 import { AuthContext } from "../context/AuthContext";
 import { uploadAvatar } from "../services";
 import { Link } from "react-router-dom";
+import "../styles/AccountPage.css";
 
 const AccountPage = () => {
   const { user, token } = useContext(AuthContext);
-  const [avatar, setAvatar] = useState(user.avatar || defaultAvatar); // Ruta de la imagen de avatar predeterminada
+  const [avatar, setAvatar] = useState(user ? user.avatar : defaultAvatar)
+  let userAvatarURL = user ? user.avatar || defaultAvatar : defaultAvatar;
   const [selectedAvatarFile, setSelectedAvatarFile] = useState(null);
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
+  
 
   const fileInputRef = useRef(null);
 
@@ -24,6 +26,7 @@ const AccountPage = () => {
   const handleAvatarChange = (e) => {
     setSelectedAvatarFile(e.target.files[0]);
     setAvatar(URL.createObjectURL(e.target.files[0]));
+    userAvatarURL = avatar
   };
 
   const uploadImage = async (imageFile) => {
@@ -42,6 +45,7 @@ const AccountPage = () => {
       uploadImage(selectedAvatarFile);
     }
   };
+  
 
   return (
     <section>
@@ -51,7 +55,7 @@ const AccountPage = () => {
         <div className="avatar-container">
           <img
             key={avatar}
-            src={avatar}
+            src={userAvatarURL}
             alt="Profile Avatar"
             className="avatar"
             onClick={showEditAvatar}
@@ -80,10 +84,10 @@ const AccountPage = () => {
           )}
         </div>
         <p>
-          <strong>Username:</strong> {user.username}
+          <strong>Username:</strong> {user ? user.username : 'N/A'}
         </p>
         <p>
-          <strong>Email:</strong> {user.email}
+          <strong>Email:</strong> {user ? user.email : 'N/A'}
         </p>
         {/* Otros detalles del perfil */}
       </div>

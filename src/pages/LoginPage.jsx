@@ -28,7 +28,7 @@ const LoginPage = () => {
     <section>
       <h2>Hey, Welcome back...</h2>
       <h3>
-        Don’t have an account? <a href="/register">Create an account.</a>
+        Don’t have an account? <Link to="/register">Create an account.</Link>
       </h3>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -65,7 +65,7 @@ const LoginPage = () => {
 
       <div>
         <h4>
-          Don’t have an account? <a href="/register"> Sign Up</a>
+        Don’t have an account? <Link to="/register">Sign Up</Link>
         </h4>
       </div>
     </section>

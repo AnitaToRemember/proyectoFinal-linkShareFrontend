@@ -37,6 +37,26 @@ export const loginUserService = async ({ email, password }) => {
   return json.token;
 };
 
+export const changePasswordService = async ({ oldPassword, newPassword, token }) => {
+  const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users/password`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({
+      oldPass: oldPassword,
+      newPass: newPassword
+    })
+  });
+
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+}
+
 export const getMyUserDataService = async ({ token }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users`, {
     headers: {

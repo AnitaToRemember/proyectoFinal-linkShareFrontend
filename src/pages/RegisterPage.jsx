@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { registerUserService } from "../services/index";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/RegisterPage.css";
 
 const RegisterPage = () => {
@@ -83,9 +83,9 @@ const RegisterPage = () => {
 
       <div>
         <h3>
-          Already have an account? <a href="/">Log in</a>
+        Already have an account? <Link to="/">Log in</Link>
         </h3>
-        <a href="./home">Continue as a guest</a>
+        <Link to="/home">Continue as a guest</Link>
       </div>
     </section>
   );

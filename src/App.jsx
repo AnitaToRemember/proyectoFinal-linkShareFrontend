@@ -16,7 +16,6 @@ import PasswordRecoveryPage from "./pages/PasswordRecoveryPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import { Switch } from "./components/switch";
 
-
 function App() {
   const { user } = useContext(AuthContext);
 

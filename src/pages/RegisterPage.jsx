@@ -30,9 +30,9 @@ const RegisterPage = () => {
   };
 
   return (
-    <section>
+    <section className="register-from">
       <h1>Create your account</h1>
-      <form onSubmit={handleForm}>
+      <form onSubmit={handleForm} >
         <fieldset>
           <label htmlFor="userName">User Name </label>
           <input

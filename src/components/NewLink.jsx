@@ -26,7 +26,7 @@ function NewLink ({ addLink }) {
     }
     };
     return (
-    <>
+    <section className="new-link-from">
         <form className="new-link" onSubmit={handleForm}>
         <fieldset>
             <label htmlFor="title">Title</label>
@@ -45,7 +45,7 @@ function NewLink ({ addLink }) {
         {error ? <p>{error}</p> : null}
         {loading ? <p>posting link...</p> : null}
         </form>
-    </>
+    </section>
     )
 }
     

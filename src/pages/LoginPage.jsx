@@ -25,12 +25,12 @@ const LoginPage = () => {
   };
 
   return (
-    <section>
+    <section className="login-form">
       <h2>Hey, Welcome back...</h2>
       <h3>
         Don’t have an account? <Link to="/register">Create an account.</Link>
       </h3>
-      <form onSubmit={handleForm}>
+      <form onSubmit={handleForm} className="login-form">
         <fieldset>
           <label htmlFor="email"></label>
           <input

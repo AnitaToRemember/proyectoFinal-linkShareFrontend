@@ -50,7 +50,7 @@ const AccountPage = () => {
   
 
   return (
-    <section>
+    <section className="account">
       <h1>Your Account</h1>
       <div className="account-details">
         <h2>Profile Information</h2>

@@ -1,7 +1,14 @@
 /* Styles for the registration form */
 
 /* Center-align the entire section and add some padding */
-section {
+.register-from{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-form{
   display: flex;
   flex-direction: column;
   align-items: center;

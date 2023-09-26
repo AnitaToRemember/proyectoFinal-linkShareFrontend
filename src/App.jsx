@@ -37,6 +37,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {user ? <NavigationBar /> : null}
+      <SwitchMode />
     </main>
   );
 }

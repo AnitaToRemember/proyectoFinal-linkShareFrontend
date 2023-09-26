@@ -1,153 +1,159 @@
 /* Styles for light mode (default) */
 .switch-mode {
-    font-size: 16px;
-  }
-  
-  /* Styles for dark mode */
-  body.dark-mode {
-    background-color: #15202b;
-    color: #ffffff;
-  }
-  
-  /* Styles for h2 headings in light mode */
-  h2 {
-    color: #333;
-  }
-  
-  /* Styles for h2 headings in dark mode */
-  body.dark-mode h2 {
-    color: #ffffff;
-  }
-  
-  /* Styles for paragraphs <p> in light mode */
-  p {
-    color: #333;
-  }
-  
-  /* Styles for paragraphs <p> in dark mode */
-  body.dark-mode p {
-    color: #ffffff;
-  }
-  
-  /* Styles for labels in light mode */
-  label {
-    color: #333;
-  }
-  
-  /* Styles for labels in dark mode */
-  body.dark-mode label {
-    color: #ffffff;
-  }
-  
-  /* Styles for forms with class .new-link in light mode */
-  form.new-link {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styles for forms with class .new-link in dark mode */
-  body.dark-mode form.new-link {
-    background-color: #15202b;
-    color: #ffffff;
-    border: 1px solid #38444d;
-  }
-  
-  /* Specific styles for the switch */
-  .switch-mode label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  /* Styles for the switch itself */
-  .switch-mode input[type="checkbox"] {
-    appearance: none;
-    width: 40px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Style of the switch indicator */
-  .switch-mode input[type="checkbox"]::before {
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background-color: #fff;
-    border-radius: 50%;
-    left: 2px;
-    top: 2px;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Change the switch background when checked */
-  .switch-mode input[type="checkbox"]:checked {
-    background-color: #1a91da; 
-  }
-  
-  /* Move the switch indicator when checked */
-  .switch-mode input[type="checkbox"]:checked::before {
-    transform: translateX(20px);
-    background-color: #ffffff;
-  }
-  
-  /* Change text colors for dark mode */
-  body.dark-mode .switch-mode {
-    color: #ffffff;
-  }
-  
-  /* Change switch colors for dark mode */
-  body.dark-mode .switch-mode input[type="checkbox"] {
-    background-color: #1a1a1b;
-  }
-  
-  /* Change indicator colors for dark mode */
-  body.dark-mode .switch-mode input[type="checkbox"]::before {
-    background-color: #ffffff; 
-  }
-  
-  /* Styles for .list-all-links in light mode */
-  .list-all-links {
-    color: #333;
-    background-color: #fff;
-  }
-  
-  /* Styles for .list-all-links in dark mode */
-  body.dark-mode .list-all-links {
-    color: #ffffff;
-    background-color: #15202b;
-  }
-  
-  /* Styles for .link-post in light mode */
-  .link-post {
-    background-color: #ffffff;
-    color: #1a1a1b;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styles for .link-post in dark mode */
-  body.dark-mode .link-post {
-    background-color: #15202b;
-    color: #ffffff;
-    border: 1px solid #38444d; 
-  }
-  
-  /* Styles for div with class .filter-container in light mode */
-  div.filter-container {
-    background-color: #f5f5f5;
-    color: #333;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styles for div with class .filter-container in dark mode */
-  body.dark-mode div.filter-container {
-    background-color: #15202b; 
-    color: #ffffff; 
-    border: 1px solid #38444d; 
-  }
-  
+  font-size: 5px;
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+  background-color: #15202b;
+  color: #ffffff;
+}
+
+/* Styles for h2 headings in light mode */
+h2 {
+  color: #333;
+}
+
+/* Styles for h2 headings in dark mode */
+body.dark-mode h2 {
+  color: #ffffff;
+}
+
+/* Styles for paragraphs <p> in light mode */
+p {
+  color: #333;
+}
+
+/* Styles for paragraphs <p> in dark mode */
+body.dark-mode p {
+  color: #ffffff;
+}
+
+/* Styles for labels in light mode */
+label {
+  display: flex;
+  color: #333;
+}
+
+/* Styles for labels in dark mode */
+body.dark-mode label {
+  color: #ffffff;
+}
+
+/* Styles for forms with class .new-link in light mode */
+form.new-link {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Styles for forms with class .new-link in dark mode */
+body.dark-mode form.new-link {
+  background-color: #15202b;
+  color: #ffffff;
+  border: 1px solid #38444d;
+}
+
+/* Specific styles for the switch */
+
+.switch-mode label {
+  position: fixed;
+  top: 90px;
+  left: 0px;
+  margin: 5px; /* Ajusta el margen según sea necesario */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999; /* Asegura que esté en la parte superior de la página */
+}
+
+/* Styles for the switch itself */
+.switch-mode input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(0, 147, 255, 1);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style of the switch indicator */
+.switch-mode input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  left: 2px;
+  top: 2px;
+  transition: transform 0.3s ease;
+}
+
+/* Change the switch background when checked */
+.switch-mode input[type="checkbox"]:checked {
+  background-color: #1a91da;
+}
+
+/* Move the switch indicator when checked */
+.switch-mode input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+  background-color: #ffffff;
+}
+
+/* Change text colors for dark mode */
+body.dark-mode .switch-mode {
+  color: #ffffff;
+}
+
+/* Change switch colors for dark mode */
+body.dark-mode .switch-mode input[type="checkbox"] {
+  background-color: #1a1a1b;
+}
+
+/* Change indicator colors for dark mode */
+body.dark-mode .switch-mode input[type="checkbox"]::before {
+  background-color: #ffffff;
+}
+
+/* Styles for .list-all-links in light mode */
+.list-all-links {
+  color: #333;
+  background-color: #fff;
+}
+
+/* Styles for .list-all-links in dark mode */
+body.dark-mode .list-all-links {
+  color: #ffffff;
+  background-color: #15202b;
+}
+
+/* Styles for .link-post in light mode */
+.link-post {
+  background-color: #ffffff;
+  color: #1a1a1b;
+  border: 1px solid #ccc;
+}
+
+/* Styles for .link-post in dark mode */
+body.dark-mode .link-post {
+  background-color: #15202b;
+  color: #ffffff;
+  border: 1px solid #38444d;
+}
+
+/* Styles for div with class .filter-container in light mode */
+div.filter-container {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Styles for div with class .filter-container in dark mode */
+body.dark-mode div.filter-container {
+  background-color: #15202b;
+  color: #ffffff;
+  border: 1px solid #38444d;
+}

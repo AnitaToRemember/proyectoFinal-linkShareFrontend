@@ -19,7 +19,7 @@ function SwitchMode() {
     <div className="switch-mode">
       <label>
         <input type="checkbox" checked={isDarkMode} onChange={toggleMode} />
-        Dark mode
+        {isDarkMode ? 'Dark mode' : 'Dark mode'}
       </label>
     </div>
   );

@@ -57,9 +57,43 @@ export const changePasswordService = async ({ oldPassword, newPassword, token })
   return json.data;
 }
 
-/*export const RecoveryByEmailService = async () => {
+export const SendEmailToRecoverPassword = async ({ email }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/users/password/recover`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email }),
+    }
+  );
 
-}*/
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};
+
+export const RecoveryByEmailService = async ({ email, code, password }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND}/users/password/recover`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, code, password }),
+    }
+  );
+
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};
 
 export const getMyUserDataService = async ({ token }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users`, {

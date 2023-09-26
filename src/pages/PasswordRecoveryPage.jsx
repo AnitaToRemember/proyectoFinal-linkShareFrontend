@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-//import { RecoveryByEmailService } from "../services";
+import {
+  RecoveryByEmailService,
+  SendEmailToRecoverPassword,
+} from "../services";
 import "../styles/pages/PasswordRecoveryPage.css";
 
 function PasswordRecoveryPage() {
@@ -24,30 +26,22 @@ function PasswordRecoveryPage() {
   };
 
   // Enviar el correo electrónico y mostrar el formulario de confirmación
-  const handleSubmitEmail = (e) => {
+  const handleSubmitEmail = async (e) => {
     e.preventDefault();
 
     if (email) {
       // Mostrar el formulario de confirmación y enviar un mensaje
-      setShowConfirmationForm(true);
-      setMessage(
-        `A recovery mail has been sent to ${email}, please check your inbox.`
-      );
+      try {
+        await SendEmailToRecoverPassword({ email });
+        setMessage(
+          `A recovery mail has been sent to ${email}, please check your inbox.`
+        );
+        setShowConfirmationForm(true);
+      } catch (error) {
+        setMessage(error.message);
+      }
     } else {
       setMessage("Please enter a valid email address.");
-    }
-  };
-
-  // Manejar el envío del formulario de confirmación
-  const handleSubmitConfirmationCode = (e) => {
-    e.preventDefault();
-
-    if (confirmationCode === "codigo_generado_aleatoriamente") {
-      // Ocultar el formulario de confirmación y mostrar el formulario de restablecimiento de contraseña
-      setShowConfirmationForm(false);
-      setMessage("Password reset successful!");
-    } else {
-      setMessage("Please enter a valid confirmation code.");
     }
   };
 
@@ -55,7 +49,11 @@ function PasswordRecoveryPage() {
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
-
+    setMessage("");
+    if (!confirmationCode) { 
+      setMessage("Please enter a valid confirmation code.");
+      return;
+    }
     if (pass1 !== pass2) {
       setError("Passwords don’t match");
       return;
@@ -63,7 +61,8 @@ function PasswordRecoveryPage() {
 
     try {
       // Aqui debo agregar la lógica para actualizar la contraseña en el servidor
-      //await RecoveryByEmailService({ password: pass1 });
+      await RecoveryByEmailService({ email, code: confirmationCode, password: pass1 });
+      setMessage("Password reset successful!");
     } catch (error) {
       setError(error.message);
     }
@@ -75,7 +74,7 @@ function PasswordRecoveryPage() {
       {showConfirmationForm ? (
         <div>
           {/* Formulario de confirmación de código */}
-          <form onSubmit={handleSubmitConfirmationCode}>
+          <form>
             <label>
               Enter the confirmation code sent to your email:
               <input
@@ -86,8 +85,8 @@ function PasswordRecoveryPage() {
                 required
               />
             </label>
-            <button type="submit" className="less-prominent-button">
-            I didn’t receive the code, please resend it
+            <button className="less-prominent-button" onClick={handleSubmitEmail}>
+              I didn’t receive the code, please resend it
             </button>
           </form>
         </div>
@@ -96,7 +95,10 @@ function PasswordRecoveryPage() {
           {/* Formulario para enviar el correo electrónico */}
           <form onSubmit={handleSubmitEmail}>
             <label>
-              <p>Enter the email linked to your ShareIn account. You’ll receive a code to reset your password.</p>
+              <p>
+                Enter the email linked to your ShareIn account. You’ll receive a
+                code to reset your password.
+              </p>
               <input
                 type="email"
                 value={email}
@@ -137,7 +139,7 @@ function PasswordRecoveryPage() {
             </fieldset>
 
             <button>
-              <Link to="/">Save</Link>
+              Save
             </button>
             {error ? <p>{error}</p> : null}
           </form>

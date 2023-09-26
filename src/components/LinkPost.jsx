@@ -8,7 +8,7 @@ import useDeleteLink from "../hooks/useDeleteLink";
 function LinkPost ({ link, removeLink }) {
   
   const navigate = useNavigate();
-  const { user, token} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { deleteLink} = useDeleteLink();
   const [error, setError] = useState("");
   const handleDeleteClick = async () => {
@@ -54,7 +54,7 @@ function LinkPost ({ link, removeLink }) {
           Posted on: {new Date(link.createdAt).toLocaleString()}
         </Link>
         
-        {token && user && link && user.id !== link.id ? (
+        {user && link && user.id === link.userId ? (
           <section>
             <button onClick={handleDeleteClick}>Delete link 🗑️</button>
             {error && <p>{error}</p>}

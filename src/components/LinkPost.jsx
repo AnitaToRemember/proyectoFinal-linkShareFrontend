@@ -9,7 +9,7 @@ function LinkPost ({ link, removeLink }) {
   
   const navigate = useNavigate();
   const { user, token} = useContext(AuthContext);
-  const { deleteLink, linkId} = useDeleteLink();
+  const { deleteLink} = useDeleteLink();
   const [error, setError] = useState("");
   const handleDeleteClick = async () => {
     if (window.confirm("Are you sure?")) {
@@ -53,10 +53,6 @@ function LinkPost ({ link, removeLink }) {
         <Link to={`/links/${link.id}`} className="date">
           Posted on: {new Date(link.createdAt).toLocaleString()}
         </Link>
-
-        <p className="date">
-          {link.id}
-        </p>
         
         {token && user && link && user.id !== link.id ? (
           <section>

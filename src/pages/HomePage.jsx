@@ -11,6 +11,7 @@ import LinkPost from '../components/LinkPost'
 function HomePage() {
     const { links, error, loading, addLink, removeLink } = useListLinks()
     const { user } = useContext(AuthContext)
+    
     if (loading) return <Loading />
     if (error) return <ErrorMessage message={error} />
 

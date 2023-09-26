@@ -16,13 +16,13 @@ const ChangePasswordPage = () => {
     setMessage("");
 
     if (pass1 !== pass2) {
-      setMessage("Passwords Don’t match");
+      setMessage("Passwords don’t match");
       return;
     }
 
     try {
       await changePasswordService({ oldPassword: oldPass, newPassword: pass1, token });
-      setMessage("password changed successfully");
+      setMessage("Password changed successfully");
     } catch (error) {
       setMessage(error.message);
     }

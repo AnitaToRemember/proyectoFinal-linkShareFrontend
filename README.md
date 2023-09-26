@@ -49,7 +49,14 @@ Make sure you have the following installed:
 
 2. Install dependencies:
 
-npm install or npm i
+```bash
+npm install 
+```
+
+or 
+```bash
+npm i
+```
 
 ## Usage
 To start ShareIn, use the following command:

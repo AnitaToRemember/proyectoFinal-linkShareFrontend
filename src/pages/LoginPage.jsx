@@ -67,6 +67,7 @@ const LoginPage = () => {
         <h4>
         Don’t have an account? <Link to="/register">Sign Up</Link>
         </h4>
+        <Link to="/home">Continue as a guest</Link>
       </div>
     </section>
   );

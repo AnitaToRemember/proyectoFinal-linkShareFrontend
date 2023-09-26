@@ -10,5 +10,4 @@ export const useTheme = (initialTheme) => {
     }, [theme]);
 
     return [theme, handleChange];
-}
-
+};

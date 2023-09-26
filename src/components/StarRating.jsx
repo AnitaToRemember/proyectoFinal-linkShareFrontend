@@ -3,12 +3,13 @@ import { starRatingService } from "../services";
 
 function StarRating({ value, linkId }) {
 	const [hoveredValue, setHoveredValue] = useState(null);
+  console.log("eve", value, linkId);
 
   const handleStarClick = async (clickedValue) => {
     try {
       await starRatingService(clickedValue, linkId);
     } catch (error) {
-      console.error('Error while voting:', error);
+      console.error('Error while voting:', error); 
     }
   };
 

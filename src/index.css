@@ -6,7 +6,8 @@
 @import './styles/components/LinkPost.css';
 @import './styles/components/NavigationBar.css';
 @import './styles/components/NewLink.css';
-@import './styles/components/Switch.css';
+@import './styles/components/SwitchMode.css';
+@import './styles/components/Loading.css';
 
 
 

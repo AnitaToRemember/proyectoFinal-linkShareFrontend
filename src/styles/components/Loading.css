@@ -1,0 +1,16 @@
+/* Style for the Loading component */
+.loading {
+    font-size: 25px; 
+    animation: heartbeat 1.5s infinite; 
+  }
+  
+ /* Definition of the "heartbeat" animation */
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  

@@ -14,7 +14,8 @@ import { AuthContext } from "./context/AuthContext";
 import FilterPage from "./pages/FilterPage";
 import PasswordRecoveryPage from "./pages/PasswordRecoveryPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
-import { Switch } from "./components/switch";
+import SwitchMode from './components/SwitchMode';
+
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -22,7 +23,7 @@ function App() {
   return (
     <main>
       <HeaderBar />
-      <Switch/>
+      <SwitchMode />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />

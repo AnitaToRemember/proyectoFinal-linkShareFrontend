@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { uploadAvatar } from "../services";
 import { Link } from "react-router-dom";
 import "../styles/pages/AccountPage.css";
+import { Auth } from "../components/Auth";
 
 const AccountPage = () => {
   const { user, token } = useContext(AuthContext);
@@ -51,6 +52,10 @@ const AccountPage = () => {
 
   return (
     <section className="account">
+      <header>
+					<Auth />
+			</header>
+
       <h1>Your Account</h1>
       <div className="account-details">
         <h2>Profile Information</h2>

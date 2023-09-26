@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { filterService } from "../services";
 import LinkPost from "../components/LinkPost";
 import "../styles/pages/FilterPage.css"; 
+import { Auth } from "../components/Auth";
 
 function FilterPage() {
   const [sortBy, setSortBy] = useState("date"); 
@@ -27,6 +28,9 @@ function FilterPage() {
 
   return (
     <div className="filter-container"> 
+    <header>
+					<Auth />
+			</header>
       <h2 className="filter-title">Filter Posts</h2>
       <div className="filter-select-container"> 
         <label htmlFor="sortBy" className="filter-label">Sort by:</label>

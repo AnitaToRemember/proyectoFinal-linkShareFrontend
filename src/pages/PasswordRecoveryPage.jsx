@@ -40,7 +40,6 @@ function PasswordRecoveryPage() {
   const handleSubmitConfirmationCode = (e) => {
     e.preventDefault();
 
-    
     if (confirmationCode === "codigo_generado_aleatoriamente") {
       // Ocultar el formulario de confirmación y mostrar el formulario de restablecimiento de contraseña
       setShowConfirmationForm(false);
@@ -150,4 +149,3 @@ function PasswordRecoveryPage() {
 }
 
 export default PasswordRecoveryPage;
-

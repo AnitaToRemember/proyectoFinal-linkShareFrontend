@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+//import { RecoveryByEmailService } from "../services";
+import "../styles/pages/PasswordRecoveryPage.css";
 
 function PasswordRecoveryPage() {
   // State para almacenar el correo electrónico, código de confirmación, mensaje de éxito/error, etc.
@@ -55,13 +57,13 @@ function PasswordRecoveryPage() {
     setError("");
 
     if (pass1 !== pass2) {
-      setError("Passwords do not match");
+      setError("Passwords don’t match");
       return;
     }
 
     try {
       // Aqui debo agregar la lógica para actualizar la contraseña en el servidor
-      // await RecoveryService({ password: pass1 });
+      //await RecoveryByEmailService({ password: pass1 });
     } catch (error) {
       setError(error.message);
     }
@@ -69,7 +71,7 @@ function PasswordRecoveryPage() {
 
   return (
     <div className="password-recovery-page">
-      <h2>Reset your password</h2>
+      <h1>Reset your password</h1>
       {showConfirmationForm ? (
         <div>
           {/* Formulario de confirmación de código */}
@@ -84,8 +86,8 @@ function PasswordRecoveryPage() {
                 required
               />
             </label>
-            <button type="submit" className="change-password-button">
-              Reset Password
+            <button type="submit" className="less-prominent-button">
+            I didn’t receive the code, please resend it
             </button>
           </form>
         </div>
@@ -94,8 +96,7 @@ function PasswordRecoveryPage() {
           {/* Formulario para enviar el correo electrónico */}
           <form onSubmit={handleSubmitEmail}>
             <label>
-              Enter the email linked to your ShareIn account. You will receive a
-              code to reset your password:
+              <p>Enter the email linked to your ShareIn account. You’ll receive a code to reset your password.</p>
               <input
                 type="email"
                 value={email}
@@ -112,7 +113,6 @@ function PasswordRecoveryPage() {
       {showConfirmationForm ? (
         <section>
           {/* Formulario de restablecimiento de contraseña */}
-          <h1>Reset your password</h1>
           <form onSubmit={handleForm}>
             <fieldset>
               <label htmlFor="pass1">Password </label>

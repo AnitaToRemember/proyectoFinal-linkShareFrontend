@@ -57,6 +57,10 @@ export const changePasswordService = async ({ oldPassword, newPassword, token })
   return json.data;
 }
 
+/*export const RecoveryByEmailService = async () => {
+
+}*/
+
 export const getMyUserDataService = async ({ token }) => {
   const response = await fetch(`${import.meta.env.VITE_APP_BACKEND}/users`, {
     headers: {

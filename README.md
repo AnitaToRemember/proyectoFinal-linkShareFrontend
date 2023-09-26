@@ -3,6 +3,7 @@
 ![ShareIn Logo](/src/assets/ShareIn.png) 
 ## Table of Contents
 
+- [Authors](#authors)
 - [About](#about)
 - [Features](#features)
 - [Getting Started](#getting-started)
@@ -10,6 +11,13 @@
   - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
+
+## Authors
+
+- Ana Cristina Best - [LinkedIn Profile](https://www.linkedin.com/in/anabest/) and [GitHub Profile](https://github.com/AnitaToRemember).
+- Evelin Arboleda - [LinkedIn Profile](https://www.linkedin.com/in/evelinarboleda/) and [GitHub Profile](https://github.com/EveArbol).
+
+This project was created as a final project for the Web Development Bootcamp of [HACK A BOSS](https://www.hackaboss.com/cursos-programacion).
 
 ## About
 ShareIn - Share and Discover Links

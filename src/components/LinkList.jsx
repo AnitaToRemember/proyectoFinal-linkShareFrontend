@@ -1,12 +1,18 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import LinkPost from "./LinkPost";
 
 function LinkList ({ links, removeLink }) {
-  return links.length ? (
+  const { user } = useContext(AuthContext);
+
+  const userLinks = links.filter((link) => user && link.userId === user.id);
+
+  return userLinks.length ? (
     <ul className="link-list">
-      {links.map((link) => {
+      {userLinks.map((link) => {
         return (
           <li key={link.id} className="user-link">
-            <LinkPost link={link} removePost={removeLink} />
+            <LinkPost link={link} removeLink={removeLink} />
           </li>
         );
       })}
@@ -16,4 +22,4 @@ function LinkList ({ links, removeLink }) {
   );
 }
 
-export default LinkList
+export default LinkList;

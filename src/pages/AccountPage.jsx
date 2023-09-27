@@ -1,10 +1,10 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import defaultAvatar from "../assets/default-avatar.png";
 import { AuthContext } from "../context/AuthContext";
-import { uploadAvatar } from "../services";
 import { Link } from "react-router-dom";
 import "../styles/pages/AccountPage.css";
 import { Auth } from "../components/Auth";
+import { userServices } from "../services";
 
 const AccountPage = () => {
   const { user, token } = useContext(AuthContext);
@@ -34,7 +34,7 @@ const AccountPage = () => {
 
   const uploadImage = async (imageFile) => {
     try {
-      await uploadAvatar({ imageFile, token });
+      await userServices.uploadAvatar({ imageFile, token });
       setAvatar(URL.createObjectURL(imageFile));
     } catch (error) {
       console.log(error);

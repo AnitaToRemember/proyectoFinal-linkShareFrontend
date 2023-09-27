@@ -1,9 +1,6 @@
 import { useState } from "react";
-import {
-  RecoveryByEmailService,
-  SendEmailToRecoverPassword,
-} from "../services";
 import "../styles/pages/PasswordRecoveryPage.css";
+import { passwordRecoveryServices } from "../services";
 
 function PasswordRecoveryPage() {
   // State para almacenar el correo electrónico, código de confirmación, mensaje de éxito/error, etc.
@@ -32,7 +29,7 @@ function PasswordRecoveryPage() {
     if (email) {
       // Mostrar el formulario de confirmación y enviar un mensaje
       try {
-        await SendEmailToRecoverPassword({ email });
+        await passwordRecoveryServices.SendEmailToRecoverPassword({ email });
         setMessage(
           `A recovery mail has been sent to ${email}, please check your inbox.`
         );
@@ -61,7 +58,7 @@ function PasswordRecoveryPage() {
 
     try {
       // Aqui debo agregar la lógica para actualizar la contraseña en el servidor
-      await RecoveryByEmailService({ email, code: confirmationCode, password: pass1 });
+      await passwordRecoveryServices.RecoveryByEmailService({ email, code: confirmationCode, password: pass1 });
       setMessage("Password reset successful!");
     } catch (error) {
       setError(error.message);

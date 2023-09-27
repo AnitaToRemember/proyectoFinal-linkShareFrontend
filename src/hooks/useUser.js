@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { getMyUserDataService } from "../services"
+import { userServices } from "../services"
+
 
 function useUser(id) {
     const [user, setUser] = useState([])
@@ -10,7 +11,7 @@ function useUser(id) {
         const loadUser = async () => {
         try {
             setLoading(true);
-            const data = await getMyUserDataService(id)
+            const data = await userServices.getMyUserDataService(id)
 
             setUser(data)
         } catch (error) {

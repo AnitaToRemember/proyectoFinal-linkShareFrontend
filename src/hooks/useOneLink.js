@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { getSingleLinkService } from "../services";
+import { linksServices } from "../services";
+
 
 function useOneLink(id) {
     const [link, setLink] = useState("")
@@ -12,7 +13,7 @@ function useOneLink(id) {
             try{
                 setLoading(true)
 
-                const data = await getSingleLinkService(id)
+                const data = await linksServices.getSingleLinkService(id)
 
                 setLink(data)
 

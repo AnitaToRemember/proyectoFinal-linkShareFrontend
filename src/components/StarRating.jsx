@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { starRatingService } from "../services";
+import { utilitiesServices } from "../services";
 
 function StarRating({ value, linkId }) {
 	const [hoveredValue, setHoveredValue] = useState(null);
@@ -7,7 +7,7 @@ function StarRating({ value, linkId }) {
 
   const handleStarClick = async (clickedValue) => {
     try {
-      await starRatingService(clickedValue, linkId);
+      await utilitiesServices.starRatingService(clickedValue, linkId);
     } catch (error) {
       console.error('Error while voting:', error); 
     }

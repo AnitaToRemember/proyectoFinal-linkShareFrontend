@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { registerUserService } from "../services/index";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/pages/RegisterPage.css";
+import { authServices } from "../services";
+
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const RegisterPage = () => {
     }
 
     try {
-      await registerUserService({ userName, email, password: pass1 });
+      await authServices.registerUserService({ userName, email, password: pass1 });
 
       navigate("/");
     } catch (error) {

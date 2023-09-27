@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getAllLinksService, getUserLinksService } from "../services"
+import { linksServices } from "../services"
 
 function useListLinks(token) {
 		const [links, setLinks] = useState([])
@@ -11,8 +11,8 @@ function useListLinks(token) {
 					try {
 						setLoading(true);
 						const data = token
-							? await getUserLinksService(token)
-							: await getAllLinksService()
+							? await linksServices.getUserLinksService(token)
+							: await linksServices.getAllLinksService()
 		
 						setLinks(data.links)
 					} catch (error) {

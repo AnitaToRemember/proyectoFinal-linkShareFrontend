@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { filterService } from "../services";
 import LinkPost from "../components/LinkPost";
 import "../styles/pages/FilterPage.css"; 
 import { Auth } from "../components/Auth";
+import { utilitiesServices } from "../services";
 
 function FilterPage() {
   const [sortBy, setSortBy] = useState("date"); 
@@ -14,7 +14,7 @@ function FilterPage() {
     async function fetchFilteredPosts() {
       setLoading(true);
       try {
-        const data = await filterService(sortBy, keyword); 
+        const data = await utilitiesServices.filterService(sortBy, keyword); 
         setFilteredPosts(data.links);
       } catch (error) {
         console.error("Error fetching filtered posts:", error);

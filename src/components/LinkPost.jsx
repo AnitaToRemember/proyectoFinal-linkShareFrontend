@@ -54,7 +54,7 @@ function LinkPost ({ link, removeLink }) {
           Posted on: {new Date(link.createdAt).toLocaleString()}
         </Link>
         
-        {link && user.id === link.userId ? (
+        {user && link && user.id === link.userId ? (
           <section>
             <button onClick={handleDeleteClick}>Delete link 🗑️</button>
             {error && <p>{error}</p>}

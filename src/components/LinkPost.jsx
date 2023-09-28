@@ -11,8 +11,6 @@ function LinkPost ({ link, removeLink }) {
   const { user } = useContext(AuthContext);
   const { deleteLink} = useDeleteLink();
   const [error, setError] = useState("");
-  const isOwner = user && user.id === link.userId;
-
   const handleDeleteClick = async () => {
     if (window.confirm("Are you sure?")) {
       try {
@@ -47,12 +45,9 @@ function LinkPost ({ link, removeLink }) {
           @{link.username}
         </span>
         
-        {/* Conditionally render the StarRating component */}
-        {!isOwner && (
-          <span className="votes">
-            <StarRating value={link.votes} linkId={link.id} />
-          </span>
-        )}
+        <span className="votes">
+          <StarRating  value={link.votes} linkId={link.id}/>
+        </span> 
 
         <Link to={`/links/${link.id}`} className="date">
           Posted on: {new Date(link.createdAt).toLocaleString()}

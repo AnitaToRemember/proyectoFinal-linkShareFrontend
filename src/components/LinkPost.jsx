@@ -27,9 +27,8 @@ function LinkPost ({ link, removeLink }) {
   };
   
   return (
-    <article className="list-all-links">
+    <section className="list-all-links">
       <div className="link-post">
-        
         <h2 className="title">
           {link.title}
         </h2>
@@ -62,7 +61,7 @@ function LinkPost ({ link, removeLink }) {
         ) : null}
 
       </div>
-    </article>
+    </section>
   );
 }
 

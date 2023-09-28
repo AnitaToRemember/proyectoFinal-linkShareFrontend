@@ -1,5 +1,8 @@
 .user-title{
-    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 }
 .user-link {
     list-style: none;

@@ -9,7 +9,15 @@
   border-radius: 5px;
 }
 
+.link-list{
+  margin: 0;
+  padding: 0;
+}
+
 .link-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 12px;
@@ -26,6 +34,7 @@
 .link-post .title {
   font-size: 16px;
   margin-bottom: 8px;
+  color: rgba(0, 0, 0);
 }
 
 .link-post .url {

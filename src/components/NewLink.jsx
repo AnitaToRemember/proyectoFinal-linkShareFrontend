@@ -25,10 +25,12 @@ function NewLink ({ addLink }) {
         setLoading(false)
     }
     };
+
     return (
     <section className="new-link-from">
         <form className="new-link" onSubmit={handleForm}>
         <fieldset>
+            <h2>What are we sharing today?</h2>
             <label htmlFor="title">Title</label>
             <input type="text" name="title" id="title" required />
         </fieldset>

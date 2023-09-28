@@ -3,10 +3,11 @@ export const starRatingService = async (value, linkId, token) => {
       `${import.meta.env.VITE_APP_BACKEND}/links/${linkId}/votes`,
       {
         method: "POST",
-        body: value,
         headers: {
+          "Content-Type": "application/json",
           Authorization: token,
         },
+        body: JSON.stringify({ value }),
       }
     );
   

@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { utilitiesServices } from "../services";
+import { AuthContext } from "../context/AuthContext"; // Import the AuthContext
 
-function StarRating({ value, linkId }) {
-	const [hoveredValue, setHoveredValue] = useState(null);
-  console.log("eve", value, linkId);
+function StarRating({ value, linkId, link }) {
+  const [hoveredValue, setHoveredValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState(null); 
+  const { user, token } = useContext(AuthContext); // Get the user context
 
   const handleStarClick = async (clickedValue) => {
     try {
-      await utilitiesServices.starRatingService(clickedValue, linkId);
+      if (!user) {
+        // Handle the case where the user is not authenticated (you can display a message or redirect to login)
+        console.error("User is not authenticated.");
+        return;
+      }
+  
+      if (user && link && user.id === link.userId ) {
+        // Notify the user that they cannot like their own post
+        console.error("You cannot like your own post.");
+        return;
+      }
+  
+      // Pass the user's token to the service function
+      await utilitiesServices.starRatingService(clickedValue, linkId, token);
+
+      // Update the selectedValue state after a successful vote
+      setSelectedValue(clickedValue);
     } catch (error) {
-      console.error('Error while voting:', error); 
+      console.error("Error while voting:" , error);
     }
   };
+  
 
-	return (
-		<div className="starRating">
+  return (
+    <div className="starRating">
       {[1, 2, 3, 4, 5].map((starValue) => (
         <span
           key={starValue}
@@ -22,7 +41,7 @@ function StarRating({ value, linkId }) {
           onMouseEnter={() => setHoveredValue(starValue)}
           onMouseLeave={() => setHoveredValue(null)}
         >
-          {starValue <= (hoveredValue || value) ? '⭐' : '☆'}
+          {starValue <= (hoveredValue || selectedValue || value) ? "⭐" : "☆"}
         </span>
       ))}
     </div>

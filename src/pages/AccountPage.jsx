@@ -3,7 +3,7 @@ import defaultAvatar from "../assets/default-avatar.png";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import "../styles/pages/AccountPage.css";
-import { Auth } from "../components/Auth";
+import Auth from '../components/Auth'
 import { userServices } from "../services";
 
 const AccountPage = () => {

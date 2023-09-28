@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
 import "../styles/components/Auth.css"
 
-export const Auth = () => {
+const Auth = () => {
   const { user, logout } = useContext(AuthContext)
 
   return user ? (
@@ -29,3 +29,5 @@ export const Auth = () => {
     
   )
 }
+
+export default Auth;

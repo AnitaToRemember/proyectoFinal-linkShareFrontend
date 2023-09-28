@@ -3,17 +3,20 @@
   align-items: center;
   background-color: var(--lightBlue);
   padding: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  height: 85px;
 }
 
 .header-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: auto;
+  align-items:end;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 27px;
   font-weight: bold;
   color: #fff; 
   text-decoration: none; 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import LinkPost from "../components/LinkPost";
 import "../styles/pages/FilterPage.css"; 
-import { Auth } from "../components/Auth";
+import Auth from '../components/Auth'
 import { utilitiesServices } from "../services";
 
 function FilterPage() {

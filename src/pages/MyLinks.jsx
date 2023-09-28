@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import UserLinks from "../components/UserLinks";
 import "../styles/pages/MyLinks.css"
-import { Auth } from "../components/Auth";
+import Auth from '../components/Auth'
 import { linksServices } from "../services";
 
 function MyLinks() { 
@@ -55,4 +55,3 @@ function MyLinks() {
 }
 
 export default MyLinks
-
